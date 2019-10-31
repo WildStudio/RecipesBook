@@ -18,7 +18,7 @@ class ModelsDecodingTests: XCTestCase {
     }
     
     func testLoadData_FromLocalJSONFileIsNotNilAndDataIsCorrect() {
-        // Given, When
+        // Given
         guard let data = localJSONData(),
             let recipes = decodeModels(Constant.results, data) as [Recipe]?
             else {
@@ -26,6 +26,7 @@ class ModelsDecodingTests: XCTestCase {
                 return
         }
         
+        // When
         let expectedTitle = "Vegetable-Pasta Oven Omelet"
         let expectedThumbnail = "http://img.recipepuppy.com/560556.jpg"
         let expectedThumbnailURL = URL(string: expectedThumbnail)!
