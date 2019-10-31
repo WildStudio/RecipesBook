@@ -7,4 +7,7 @@
    <FileRef
       location = "group:Models/Models.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:RecipePuppyKit/RecipePuppyKit.xcodeproj">
+   </FileRef>
 </Workspace>
