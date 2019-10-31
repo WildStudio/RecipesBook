@@ -10,6 +10,17 @@
 		88CD72A9236AEC5D00313E93 /* RecipePuppyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CD729F236AEC5D00313E93 /* RecipePuppyKit.framework */; };
 		88CD72AE236AEC5D00313E93 /* RecipePuppyKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72AD236AEC5D00313E93 /* RecipePuppyKitTests.swift */; };
 		88CD72B0236AEC5D00313E93 /* RecipePuppyKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 88CD72A2236AEC5D00313E93 /* RecipePuppyKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88CD72BC236AECF000313E93 /* ServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72BB236AECF000313E93 /* ServiceType.swift */; };
+		88CD72BF236AED0A00313E93 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CD72BE236AED0A00313E93 /* Models.framework */; };
+		88CD72C0236AED0A00313E93 /* Models.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88CD72BE236AED0A00313E93 /* Models.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		88CD72C4236AEDD600313E93 /* ServerConfigType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72C3236AEDD600313E93 /* ServerConfigType.swift */; };
+		88CD72C7236AEE7200313E93 /* NSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72C6236AEE7200313E93 /* NSURLSession.swift */; };
+		88CD72C9236AEE9A00313E93 /* Dictionary+AllValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72C8236AEE9A00313E93 /* Dictionary+AllValues.swift */; };
+		88CD72CB236AEEC200313E93 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72CA236AEEC200313E93 /* Service.swift */; };
+		88CD72CE236AEF1600313E93 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72CD236AEF1600313E93 /* Route.swift */; };
+		88CD72D0236AEFA800313E93 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72CF236AEFA800313E93 /* HTTPMethod.swift */; };
+		88CD72D2236AF04500313E93 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72D1236AF04500313E93 /* JSON.swift */; };
+		88CD72D5236AF08000313E93 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72D4236AF08000313E93 /* Log.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,6 +33,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		88CD72C1236AED0A00313E93 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				88CD72C0236AED0A00313E93 /* Models.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		88CD729F236AEC5D00313E93 /* RecipePuppyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RecipePuppyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88CD72A2236AEC5D00313E93 /* RecipePuppyKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecipePuppyKit.h; sourceTree = "<group>"; };
@@ -29,6 +54,16 @@
 		88CD72A8236AEC5D00313E93 /* RecipePuppyKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipePuppyKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88CD72AD236AEC5D00313E93 /* RecipePuppyKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePuppyKitTests.swift; sourceTree = "<group>"; };
 		88CD72AF236AEC5D00313E93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88CD72BB236AECF000313E93 /* ServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceType.swift; sourceTree = "<group>"; };
+		88CD72BE236AED0A00313E93 /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88CD72C3236AEDD600313E93 /* ServerConfigType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfigType.swift; sourceTree = "<group>"; };
+		88CD72C6236AEE7200313E93 /* NSURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSURLSession.swift; sourceTree = "<group>"; };
+		88CD72C8236AEE9A00313E93 /* Dictionary+AllValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+AllValues.swift"; sourceTree = "<group>"; };
+		88CD72CA236AEEC200313E93 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		88CD72CD236AEF1600313E93 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		88CD72CF236AEFA800313E93 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		88CD72D1236AF04500313E93 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		88CD72D4236AF08000313E93 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88CD72BF236AED0A00313E93 /* Models.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +92,7 @@
 				88CD72A1236AEC5D00313E93 /* RecipePuppyKit */,
 				88CD72AC236AEC5D00313E93 /* RecipePuppyKitTests */,
 				88CD72A0236AEC5D00313E93 /* Products */,
+				88CD72BD236AED0A00313E93 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +108,7 @@
 		88CD72A1236AEC5D00313E93 /* RecipePuppyKit */ = {
 			isa = PBXGroup;
 			children = (
+				88CD72B9236AECA100313E93 /* Source */,
 				88CD72A2236AEC5D00313E93 /* RecipePuppyKit.h */,
 				88CD72A3236AEC5D00313E93 /* Info.plist */,
 			);
@@ -84,6 +122,70 @@
 				88CD72AF236AEC5D00313E93 /* Info.plist */,
 			);
 			path = RecipePuppyKitTests;
+			sourceTree = "<group>";
+		};
+		88CD72B9236AECA100313E93 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				88CD72D3236AF05500313E93 /* Logs */,
+				88CD72CC236AEF0500313E93 /* Routing */,
+				88CD72C5236AEE5300313E93 /* Extensions */,
+				88CD72C2236AEDC800313E93 /* Models */,
+				88CD72BA236AECCB00313E93 /* Service */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		88CD72BA236AECCB00313E93 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				88CD72BB236AECF000313E93 /* ServiceType.swift */,
+				88CD72CA236AEEC200313E93 /* Service.swift */,
+				88CD72D1236AF04500313E93 /* JSON.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		88CD72BD236AED0A00313E93 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88CD72BE236AED0A00313E93 /* Models.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88CD72C2236AEDC800313E93 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				88CD72C3236AEDD600313E93 /* ServerConfigType.swift */,
+				88CD72CF236AEFA800313E93 /* HTTPMethod.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		88CD72C5236AEE5300313E93 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				88CD72C6236AEE7200313E93 /* NSURLSession.swift */,
+				88CD72C8236AEE9A00313E93 /* Dictionary+AllValues.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		88CD72CC236AEF0500313E93 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				88CD72CD236AEF1600313E93 /* Route.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		88CD72D3236AF05500313E93 /* Logs */ = {
+			isa = PBXGroup;
+			children = (
+				88CD72D4236AF08000313E93 /* Log.swift */,
+			);
+			path = Logs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,6 +210,7 @@
 				88CD729B236AEC5D00313E93 /* Sources */,
 				88CD729C236AEC5D00313E93 /* Frameworks */,
 				88CD729D236AEC5D00313E93 /* Resources */,
+				88CD72C1236AED0A00313E93 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -148,6 +251,7 @@
 				TargetAttributes = {
 					88CD729E236AEC5D00313E93 = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1100;
 					};
 					88CD72A7236AEC5D00313E93 = {
 						CreatedOnToolsVersion = 11.0;
@@ -195,6 +299,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88CD72C4236AEDD600313E93 /* ServerConfigType.swift in Sources */,
+				88CD72BC236AECF000313E93 /* ServiceType.swift in Sources */,
+				88CD72D5236AF08000313E93 /* Log.swift in Sources */,
+				88CD72D0236AEFA800313E93 /* HTTPMethod.swift in Sources */,
+				88CD72CB236AEEC200313E93 /* Service.swift in Sources */,
+				88CD72CE236AEF1600313E93 /* Route.swift in Sources */,
+				88CD72C7236AEE7200313E93 /* NSURLSession.swift in Sources */,
+				88CD72C9236AEE9A00313E93 /* Dictionary+AllValues.swift in Sources */,
+				88CD72D2236AF04500313E93 /* JSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +453,7 @@
 		88CD72B4236AEC5D00313E93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = PL4DM2BH2S;
@@ -356,6 +470,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = badi.RecipePuppyKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -364,6 +480,7 @@
 		88CD72B5236AEC5D00313E93 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = PL4DM2BH2S;
@@ -380,6 +497,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = badi.RecipePuppyKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -388,6 +506,7 @@
 		88CD72B7236AEC5D00313E93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PL4DM2BH2S;
 				INFOPLIST_FILE = RecipePuppyKitTests/Info.plist;
@@ -406,6 +525,7 @@
 		88CD72B8236AEC5D00313E93 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PL4DM2BH2S;
 				INFOPLIST_FILE = RecipePuppyKitTests/Info.plist;
