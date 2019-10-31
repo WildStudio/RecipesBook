@@ -14,6 +14,11 @@
 		88CD722F236AD39D00313E93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88CD722E236AD39D00313E93 /* Assets.xcassets */; };
 		88CD7232236AD39D00313E93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88CD7230236AD39D00313E93 /* LaunchScreen.storyboard */; };
 		88CD723D236AD39D00313E93 /* RecipesBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD723C236AD39D00313E93 /* RecipesBookTests.swift */; };
+		88CD72DB236AF6BB00313E93 /* RecipesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72DA236AF6BB00313E93 /* RecipesRepository.swift */; };
+		88CD72DE236AF70800313E93 /* RecipePuppyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CD72DD236AF70800313E93 /* RecipePuppyKit.framework */; };
+		88CD72DF236AF70800313E93 /* RecipePuppyKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88CD72DD236AF70800313E93 /* RecipePuppyKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		88CD72E2236AF70C00313E93 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CD72E1236AF70C00313E93 /* Models.framework */; };
+		88CD72E3236AF70C00313E93 /* Models.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88CD72E1236AF70C00313E93 /* Models.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +30,21 @@
 			remoteInfo = RecipesBook;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		88CD72E0236AF70800313E93 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				88CD72E3236AF70C00313E93 /* Models.framework in Embed Frameworks */,
+				88CD72DF236AF70800313E93 /* RecipePuppyKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		88CD7222236AD39B00313E93 /* RecipesBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipesBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +58,9 @@
 		88CD7238236AD39D00313E93 /* RecipesBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipesBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88CD723C236AD39D00313E93 /* RecipesBookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesBookTests.swift; sourceTree = "<group>"; };
 		88CD723E236AD39D00313E93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88CD72DA236AF6BB00313E93 /* RecipesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesRepository.swift; sourceTree = "<group>"; };
+		88CD72DD236AF70800313E93 /* RecipePuppyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RecipePuppyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88CD72E1236AF70C00313E93 /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88CD72E2236AF70C00313E93 /* Models.framework in Frameworks */,
+				88CD72DE236AF70800313E93 /* RecipePuppyKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +89,7 @@
 				88CD7224236AD39B00313E93 /* RecipesBook */,
 				88CD723B236AD39D00313E93 /* RecipesBookTests */,
 				88CD7223236AD39B00313E93 /* Products */,
+				88CD72DC236AF70800313E93 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,9 +105,10 @@
 		88CD7224236AD39B00313E93 /* RecipesBook */ = {
 			isa = PBXGroup;
 			children = (
+				88CD72D9236AF57F00313E93 /* Repositories */,
+				88CD72D8236AF56D00313E93 /* ViewControllers */,
 				88CD7225236AD39B00313E93 /* AppDelegate.swift */,
 				88CD7227236AD39B00313E93 /* SceneDelegate.swift */,
-				88CD7229236AD39C00313E93 /* ViewController.swift */,
 				88CD722B236AD39C00313E93 /* Main.storyboard */,
 				88CD722E236AD39D00313E93 /* Assets.xcassets */,
 				88CD7230236AD39D00313E93 /* LaunchScreen.storyboard */,
@@ -99,6 +126,31 @@
 			path = RecipesBookTests;
 			sourceTree = "<group>";
 		};
+		88CD72D8236AF56D00313E93 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				88CD7229236AD39C00313E93 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		88CD72D9236AF57F00313E93 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				88CD72DA236AF6BB00313E93 /* RecipesRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		88CD72DC236AF70800313E93 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88CD72E1236AF70C00313E93 /* Models.framework */,
+				88CD72DD236AF70800313E93 /* RecipePuppyKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -109,6 +161,7 @@
 				88CD721E236AD39B00313E93 /* Sources */,
 				88CD721F236AD39B00313E93 /* Frameworks */,
 				88CD7220236AD39B00313E93 /* Resources */,
+				88CD72E0236AF70800313E93 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -201,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88CD722A236AD39C00313E93 /* ViewController.swift in Sources */,
+				88CD72DB236AF6BB00313E93 /* RecipesRepository.swift in Sources */,
 				88CD7226236AD39B00313E93 /* AppDelegate.swift in Sources */,
 				88CD7228236AD39B00313E93 /* SceneDelegate.swift in Sources */,
 			);
