@@ -4,4 +4,7 @@
    <FileRef
       location = "container:RecipesBook.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Models/Models.xcodeproj">
+   </FileRef>
 </Workspace>
