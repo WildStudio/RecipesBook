@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		88CD727E236ADBD500313E93 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CD7274236ADBD500313E93 /* Models.framework */; };
-		88CD7283236ADBD500313E93 /* ModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD7282236ADBD500313E93 /* ModelsTests.swift */; };
+		88CD7283236ADBD500313E93 /* ModelsDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD7282236ADBD500313E93 /* ModelsDecodingTests.swift */; };
 		88CD7285236ADBD500313E93 /* Models.h in Headers */ = {isa = PBXBuildFile; fileRef = 88CD7277236ADBD500313E93 /* Models.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		88CD7291236ADCA000313E93 /* results.json in Resources */ = {isa = PBXBuildFile; fileRef = 88CD7290236ADC9F00313E93 /* results.json */; };
+		88CD7293236ADEAD00313E93 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD7292236ADEAD00313E93 /* Recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,9 +29,10 @@
 		88CD7277236ADBD500313E93 /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
 		88CD7278236ADBD500313E93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88CD727D236ADBD500313E93 /* ModelsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModelsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		88CD7282236ADBD500313E93 /* ModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsTests.swift; sourceTree = "<group>"; };
+		88CD7282236ADBD500313E93 /* ModelsDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsDecodingTests.swift; sourceTree = "<group>"; };
 		88CD7284236ADBD500313E93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88CD7290236ADC9F00313E93 /* results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = results.json; sourceTree = "<group>"; };
+		88CD7292236ADEAD00313E93 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +85,8 @@
 		88CD7281236ADBD500313E93 /* ModelsTests */ = {
 			isa = PBXGroup;
 			children = (
+				88CD7294236ADF4200313E93 /* Source */,
 				88CD728F236ADBF200313E93 /* Resources */,
-				88CD7282236ADBD500313E93 /* ModelsTests.swift */,
 				88CD7284236ADBD500313E93 /* Info.plist */,
 			);
 			path = ModelsTests;
@@ -93,6 +95,7 @@
 		88CD728E236ADBEA00313E93 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				88CD7292236ADEAD00313E93 /* Recipe.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -103,6 +106,14 @@
 				88CD7290236ADC9F00313E93 /* results.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		88CD7294236ADF4200313E93 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				88CD7282236ADBD500313E93 /* ModelsDecodingTests.swift */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +178,7 @@
 				TargetAttributes = {
 					88CD7273236ADBD500313E93 = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1100;
 					};
 					88CD727C236ADBD500313E93 = {
 						CreatedOnToolsVersion = 11.0;
@@ -215,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88CD7293236ADEAD00313E93 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88CD7283236ADBD500313E93 /* ModelsTests.swift in Sources */,
+				88CD7283236ADBD500313E93 /* ModelsDecodingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +373,7 @@
 		88CD7289236ADBD500313E93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = PL4DM2BH2S;
@@ -376,6 +390,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = badi.Models;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -384,6 +399,7 @@
 		88CD728A236ADBD500313E93 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = PL4DM2BH2S;
@@ -408,6 +424,7 @@
 		88CD728C236ADBD500313E93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PL4DM2BH2S;
 				INFOPLIST_FILE = ModelsTests/Info.plist;
@@ -426,6 +443,7 @@
 		88CD728D236ADBD500313E93 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PL4DM2BH2S;
 				INFOPLIST_FILE = ModelsTests/Info.plist;
