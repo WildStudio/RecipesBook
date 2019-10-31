@@ -119,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				88CD72D6236AF15700313E93 /* Source */,
-				88CD72AD236AEC5D00313E93 /* RecipePuppyKitTests.swift */,
 				88CD72AF236AEC5D00313E93 /* Info.plist */,
 			);
 			path = RecipePuppyKitTests;
@@ -192,16 +191,9 @@
 		88CD72D6236AF15700313E93 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				88CD72D7236AF16D00313E93 /* Mocks */,
+				88CD72AD236AEC5D00313E93 /* RecipePuppyKitTests.swift */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		88CD72D7236AF16D00313E93 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
