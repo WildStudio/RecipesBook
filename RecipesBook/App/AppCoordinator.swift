@@ -6,18 +6,28 @@
 //  Copyright © 2019 badi. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
 
 final class AppCoordinator {
     
     // MARK: - Properties
     
+    private let dependencyProvider: Dependencies
+    private var rootCoordinator: RootCoordinator?
     
     
     // MARK: - Life cycle
     
-    required init() {
-        
+    required init(dependencyProvider: Dependencies) {
+        self.dependencyProvider = dependencyProvider
+    }
+    
+    
+    // MARK: - Setup
+    
+    func setup(for window: UIWindow?) {
+        setupRoot(for: window)
     }
     
     private func setupRoot(for window: UIWindow?) {
@@ -29,4 +39,4 @@ final class AppCoordinator {
     
 }
 
-}
+

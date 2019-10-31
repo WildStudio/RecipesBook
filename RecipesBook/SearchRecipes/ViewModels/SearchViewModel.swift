@@ -11,8 +11,13 @@ import Foundation
 class SearchViewModel {
     
     private let getRecipes: GetRecipesWithIngredients
-
-    init(getRecipes: GetRecipesWithIngredients) {
+    private let routeMediator: RootCoordinator.RouteMediator
+    
+    init(
+        getRecipes: GetRecipesWithIngredients,
+        routeMediator: RootCoordinator.RouteMediator
+    ) {
         self.getRecipes = getRecipes
+        self.routeMediator = routeMediator
     }
 }

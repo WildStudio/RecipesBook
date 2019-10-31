@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8841761D236B25980081EDC5 /* RepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8841761C236B25980081EDC5 /* RepositoryProvider.swift */; };
 		88CD7226236AD39B00313E93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD7225236AD39B00313E93 /* AppDelegate.swift */; };
 		88CD7228236AD39B00313E93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD7227236AD39B00313E93 /* SceneDelegate.swift */; };
 		88CD722A236AD39C00313E93 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD7229236AD39C00313E93 /* SearchViewController.swift */; };
@@ -26,6 +27,8 @@
 		88CD72F3236B1C4200313E93 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72F2236B1C4200313E93 /* RootCoordinator.swift */; };
 		88CD72F6236B1C8100313E93 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72F5236B1C8100313E93 /* Coordinator.swift */; };
 		88CD72F8236B1CC200313E93 /* RouteMediating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72F7236B1CC200313E93 /* RouteMediating.swift */; };
+		88CD72FA236B222F00313E93 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72F9236B222F00313E93 /* DependencyProvider.swift */; };
+		88CD72FC236B226200313E93 /* RecipesRepositoryProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72FB236B226200313E93 /* RecipesRepositoryProviding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8841761C236B25980081EDC5 /* RepositoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProvider.swift; sourceTree = "<group>"; };
 		88CD7222236AD39B00313E93 /* RecipesBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipesBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88CD7225236AD39B00313E93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88CD7227236AD39B00313E93 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 		88CD72F2236B1C4200313E93 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		88CD72F5236B1C8100313E93 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		88CD72F7236B1CC200313E93 /* RouteMediating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMediating.swift; sourceTree = "<group>"; };
+		88CD72F9236B222F00313E93 /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
+		88CD72FB236B226200313E93 /* RecipesRepositoryProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesRepositoryProviding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				88CD72DA236AF6BB00313E93 /* RecipesRepository.swift */,
+				88CD72FB236B226200313E93 /* RecipesRepositoryProviding.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -207,6 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				88CD72EF236B066D00313E93 /* AppCoordinator.swift */,
+				88CD72F9236B222F00313E93 /* DependencyProvider.swift */,
+				8841761C236B25980081EDC5 /* RepositoryProvider.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -332,8 +341,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				88CD72F8236B1CC200313E93 /* RouteMediating.swift in Sources */,
+				8841761D236B25980081EDC5 /* RepositoryProvider.swift in Sources */,
+				88CD72FA236B222F00313E93 /* DependencyProvider.swift in Sources */,
 				88CD72F3236B1C4200313E93 /* RootCoordinator.swift in Sources */,
 				88CD72EA236AFDF000313E93 /* SearchViewModel.swift in Sources */,
+				88CD72FC236B226200313E93 /* RecipesRepositoryProviding.swift in Sources */,
 				88CD722A236AD39C00313E93 /* SearchViewController.swift in Sources */,
 				88CD72E6236AF7A700313E93 /* GetRecipesWithIngredients.swift in Sources */,
 				88CD72DB236AF6BB00313E93 /* RecipesRepository.swift in Sources */,
