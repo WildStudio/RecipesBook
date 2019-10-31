@@ -7,28 +7,64 @@
 //
 
 import XCTest
+import Models
 @testable import RecipePuppyKit
 
-class RecipePuppyKitTests: XCTestCase {
-
+final class ServiceTypeTests: XCTestCase {
+    
+    private enum Constant {
+        static let ingredients = "onions,garlic"
+        static let timeout = 10.0
+        static let resultsNumber = 10
+    }
+    
+    var serverConfig: ServerConfigType!
+    var service: ServiceType!
+    
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        serverConfig = ServerConfig(apiBaseUrl: URL(string: "http://www.recipepuppy.com/")!)
+        service = Service(serverConfig: serverConfig)
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    
+    func testDownloadUsersData() {
+        
+        // Create an expectation for a background download task.
+        let expectation = XCTestExpectation(description: "Download http://www.recipepuppy.com/api")
+        
+        // Create a background task to download the data
+        service.fetchRecipes(ingredients: Constant.ingredients) { response in
+            // Make sure we downloaded some data.
+            XCTAssertNotNil(response, "No data was downloaded.")
+            
+            // Fulfill the expectation to indicate that the background task has finished successfully.x
+            expectation.fulfill()
+            
         }
+        
+        // Wait until the expectation is fulfilled, with a timeout of 10 seconds.
+        wait(for: [expectation], timeout: Constant.timeout)
     }
-
+    
+    
+    func testDownloadConcreteRecipesData() {
+        let expectation = XCTestExpectation(
+            description: "searches with one or multiple ingredients"
+        )
+        var data: [Recipe]?
+        service.fetchRecipes(ingredients: Constant.ingredients) { response in
+            switch response {
+            case .success(let recipes):
+                data = recipes
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            XCTAssertNotNil(data, "No data was downloaded.")
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: Constant.timeout)
+        XCTAssertNotNil(data?.first)
+    }
+    
 }
