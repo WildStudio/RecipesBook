@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UICollectionViewController {
+class SearchViewController: UIViewController {
     
     private enum Constant {
           static let cellReuseIdentifier = "cell"
@@ -20,8 +20,9 @@ class SearchViewController: UICollectionViewController {
     }
 
     private var search: UISearchController?
-    private var viewModel: SearchViewModel
-    
+    private var viewModel: SearchViewModel?
+    @IBOutlet private var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet private var collectionView: UICollectionView!
     // MARK: - Life cycle
 
     public init(viewModel: SearchViewModel) {
@@ -31,13 +32,14 @@ class SearchViewController: UICollectionViewController {
     
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchController()
+        setupCollectionView()
     }
     
     
@@ -52,7 +54,13 @@ class SearchViewController: UICollectionViewController {
         navigationItem.hidesSearchBarWhenScrolling = false
         search?.searchBar.isHidden = true
     }
-
+    
+    
+    private func setupCollectionView() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(RecipeCell.self, forCellWithReuseIdentifier: Constant.cellReuseIdentifier)
+    }
 
 }
 
@@ -66,5 +74,21 @@ extension SearchViewController: UISearchResultsUpdating {
 //        viewModel?.updateSearchResults(for: text)
         collectionView.reloadData()
     }
-    
 }
+
+extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.cellReuseIdentifier, for: indexPath)
+        cell.backgroundColor = UIColor.red
+
+        return cell
+    }
+
+}
+
+

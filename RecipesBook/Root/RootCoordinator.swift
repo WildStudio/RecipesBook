@@ -22,13 +22,11 @@ final class RootCoordinator: Coordinator {
     
     // MARK: - Life cycle
     
-    init(dependencyProvider: Dependencies) {
+    init(dependencyProvider: DependencyProvider) {
         root = SearchViewController(
             viewModel: SearchViewModel(
                 getRecipes: GetRecipesWithIngredients(
-                    repository: RecipesRepository(
-                        service: Service(serverConfig: ServerConfig(apiBaseUrl: URL(string: "")!))
-                    )
+                    repository: dependencyProvider.provider.recipesRepository
                 ),
                 routeMediator: mediator
             )

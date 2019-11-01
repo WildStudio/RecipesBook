@@ -13,13 +13,13 @@ final class AppCoordinator {
     
     // MARK: - Properties
     
-    private let dependencyProvider: Dependencies
+    private let dependencyProvider: DependencyProvider
     private var rootCoordinator: RootCoordinator?
     
     
     // MARK: - Life cycle
     
-    required init(dependencyProvider: Dependencies) {
+    required init(dependencyProvider: DependencyProvider) {
         self.dependencyProvider = dependencyProvider
     }
     
@@ -29,6 +29,7 @@ final class AppCoordinator {
     func setup(for window: UIWindow?) {
         setupRoot(for: window)
     }
+    
     
     private func setupRoot(for window: UIWindow?) {
         let coordinator = RootCoordinator(dependencyProvider: dependencyProvider)

@@ -10,8 +10,7 @@ import Foundation
 import RecipePuppyKit
 
 /// The entire list of dependencies.
-typealias Dependencies =
-    RecipesRepositoryProviding
+typealias Dependencies = RecipesRepositoryProviding
 
 class DependencyProvider: Dependencies {
 

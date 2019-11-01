@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		8841761D236B25980081EDC5 /* RepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8841761C236B25980081EDC5 /* RepositoryProvider.swift */; };
+		8841761F236C5AD20081EDC5 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8841761E236C5AD20081EDC5 /* SearchViewController.xib */; };
+		88417622236C5CCA0081EDC5 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88417621236C5CCA0081EDC5 /* RecipeCell.swift */; };
+		88417624236C5D630081EDC5 /* RecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88417623236C5D620081EDC5 /* RecipeCell.xib */; };
 		88CD7226236AD39B00313E93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD7225236AD39B00313E93 /* AppDelegate.swift */; };
 		88CD7228236AD39B00313E93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD7227236AD39B00313E93 /* SceneDelegate.swift */; };
 		88CD722A236AD39C00313E93 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD7229236AD39C00313E93 /* SearchViewController.swift */; };
-		88CD722D236AD39C00313E93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88CD722B236AD39C00313E93 /* Main.storyboard */; };
 		88CD722F236AD39D00313E93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88CD722E236AD39D00313E93 /* Assets.xcassets */; };
 		88CD7232236AD39D00313E93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88CD7230236AD39D00313E93 /* LaunchScreen.storyboard */; };
 		88CD723D236AD39D00313E93 /* RecipesBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD723C236AD39D00313E93 /* RecipesBookTests.swift */; };
@@ -22,7 +24,6 @@
 		88CD72E3236AF70C00313E93 /* Models.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88CD72E1236AF70C00313E93 /* Models.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		88CD72E6236AF7A700313E93 /* GetRecipesWithIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72E5236AF7A700313E93 /* GetRecipesWithIngredients.swift */; };
 		88CD72EA236AFDF000313E93 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72E9236AFDF000313E93 /* SearchViewModel.swift */; };
-		88CD72ED236B04C600313E93 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88CD72EC236B04C600313E93 /* SearchViewController.xib */; };
 		88CD72F0236B066D00313E93 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72EF236B066D00313E93 /* AppCoordinator.swift */; };
 		88CD72F3236B1C4200313E93 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72F2236B1C4200313E93 /* RootCoordinator.swift */; };
 		88CD72F6236B1C8100313E93 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD72F5236B1C8100313E93 /* Coordinator.swift */; };
@@ -58,11 +59,13 @@
 
 /* Begin PBXFileReference section */
 		8841761C236B25980081EDC5 /* RepositoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProvider.swift; sourceTree = "<group>"; };
+		8841761E236C5AD20081EDC5 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		88417621236C5CCA0081EDC5 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
+		88417623236C5D620081EDC5 /* RecipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCell.xib; sourceTree = "<group>"; };
 		88CD7222236AD39B00313E93 /* RecipesBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipesBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88CD7225236AD39B00313E93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88CD7227236AD39B00313E93 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		88CD7229236AD39C00313E93 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		88CD722C236AD39C00313E93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		88CD722E236AD39D00313E93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88CD7231236AD39D00313E93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88CD7233236AD39D00313E93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,7 +77,6 @@
 		88CD72E1236AF70C00313E93 /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88CD72E5236AF7A700313E93 /* GetRecipesWithIngredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecipesWithIngredients.swift; sourceTree = "<group>"; };
 		88CD72E9236AFDF000313E93 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
-		88CD72EC236B04C600313E93 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		88CD72EF236B066D00313E93 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		88CD72F2236B1C4200313E93 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		88CD72F5236B1C8100313E93 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -103,6 +105,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88417620236C5CB80081EDC5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				88417621236C5CCA0081EDC5 /* RecipeCell.swift */,
+				88417623236C5D620081EDC5 /* RecipeCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		88CD7219236AD39B00313E93 = {
 			isa = PBXGroup;
 			children = (
@@ -132,7 +143,6 @@
 				88CD72D9236AF57F00313E93 /* Repositories */,
 				88CD7225236AD39B00313E93 /* AppDelegate.swift */,
 				88CD7227236AD39B00313E93 /* SceneDelegate.swift */,
-				88CD722B236AD39C00313E93 /* Main.storyboard */,
 				88CD722E236AD39D00313E93 /* Assets.xcassets */,
 				88CD7230236AD39D00313E93 /* LaunchScreen.storyboard */,
 				88CD7233236AD39D00313E93 /* Info.plist */,
@@ -205,7 +215,8 @@
 		88CD72EB236B04AC00313E93 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				88CD72EC236B04C600313E93 /* SearchViewController.xib */,
+				88417620236C5CB80081EDC5 /* Cells */,
+				8841761E236C5AD20081EDC5 /* SearchViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -321,8 +332,8 @@
 			files = (
 				88CD7232236AD39D00313E93 /* LaunchScreen.storyboard in Resources */,
 				88CD722F236AD39D00313E93 /* Assets.xcassets in Resources */,
-				88CD72ED236B04C600313E93 /* SearchViewController.xib in Resources */,
-				88CD722D236AD39C00313E93 /* Main.storyboard in Resources */,
+				88417624236C5D630081EDC5 /* RecipeCell.xib in Resources */,
+				8841761F236C5AD20081EDC5 /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +354,7 @@
 				88CD72F8236B1CC200313E93 /* RouteMediating.swift in Sources */,
 				8841761D236B25980081EDC5 /* RepositoryProvider.swift in Sources */,
 				88CD72FA236B222F00313E93 /* DependencyProvider.swift in Sources */,
+				88417622236C5CCA0081EDC5 /* RecipeCell.swift in Sources */,
 				88CD72F3236B1C4200313E93 /* RootCoordinator.swift in Sources */,
 				88CD72EA236AFDF000313E93 /* SearchViewModel.swift in Sources */,
 				88CD72FC236B226200313E93 /* RecipesRepositoryProviding.swift in Sources */,
@@ -375,14 +387,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		88CD722B236AD39C00313E93 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				88CD722C236AD39C00313E93 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		88CD7230236AD39D00313E93 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
