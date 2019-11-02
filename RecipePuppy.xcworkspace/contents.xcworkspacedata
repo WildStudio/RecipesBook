@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:RecipesBook.xcodeproj">
+      location = "container:RecipePuppy.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Models/Models.xcodeproj">

@@ -23,6 +23,7 @@ class SearchViewController: UIViewController {
     private var viewModel: SearchViewModel?
     @IBOutlet private var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet private var collectionView: UICollectionView!
+    
     // MARK: - Life cycle
 
     public init(viewModel: SearchViewModel) {
@@ -40,8 +41,13 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setupSearchController()
         setupCollectionView()
+        viewModel?.initiate()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("YAAY")
+    }
     
     
     private func setupSearchController() {
@@ -76,19 +82,30 @@ extension SearchViewController: UISearchResultsUpdating {
     }
 }
 
-extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+// MARK: UICollectionViewDataSource
+
+extension SearchViewController: UICollectionViewDataSource {
     
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModel?.recipes?.count ?? 0
     }
+
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.cellReuseIdentifier, for: indexPath)
-        cell.backgroundColor = UIColor.red
-
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.cellReuseIdentifier, for: indexPath) as? RecipeCell
+            else { fatalError("Wrong cell type") }
+//        cell.configure(operation: operations[indexPath.item])
         return cell
     }
 
+}
+
+extension SearchViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
 }
 
 

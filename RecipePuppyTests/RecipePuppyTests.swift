@@ -1,15 +1,15 @@
 //
-//  RecipesBookTests.swift
-//  RecipesBookTests
+//  RecipePuppyTests.swift
+//  RecipePuppyTests
 //
-//  Created by wearemobilefirst on 31/10/2019.
+//  Created by wearemobilefirst on 02/11/2019.
 //  Copyright © 2019 badi. All rights reserved.
 //
 
 import XCTest
-@testable import RecipesBook
+@testable import RecipePuppy
 
-class RecipesBookTests: XCTestCase {
+class RecipePuppyTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
