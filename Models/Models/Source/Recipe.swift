@@ -9,6 +9,11 @@
 import Foundation
 
 public struct Recipe: Codable {
+    
+    private enum Constant {
+        static let milk = "milk"
+        static let cheese = "cheese"
+    }
     public let title: String
     public let href: String
     public let ingredients: String
@@ -20,5 +25,10 @@ public struct Recipe: Codable {
     
     public var hrefURL: URL? {
         URL(string: href)
+    }
+    
+    public var hasLactose: Bool {
+        ingredients.contains(Constant.milk) ||
+            ingredients.contains(Constant.cheese)
     }
 }
