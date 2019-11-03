@@ -30,6 +30,8 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
         return spinner
     }()
     
+    lazy private var emptyStateController = EmptyStateViewController()
+    
     @IBOutlet private var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet private var collectionView: UICollectionView!
     
@@ -47,6 +49,19 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
         title = viewModel?.title
         setupSearchController()
         setupCollectionView()
+        addEmptyState()
+    }
+    
+    
+    private func addEmptyState() {
+        embed(emptyStateController)
+        embedView(emptyStateController.view, in: view)
+        emptyStateController.setupView(with: "Welcome to the Recipe Puppy App", subtitle: "What are you waiting for? Start typing to search recipes with ingredients.")
+    }
+    
+    
+    private func removeEmptyState() {
+        remove(emptyStateController)
     }
     
     
@@ -69,6 +84,7 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
     
     
     private func refreshView() {
+        removeEmptyState()
         spinner.stopAnimating()
         search?.searchBar.searchTextField.leftView = searchBarInitialLeftView
         collectionView.reloadData()

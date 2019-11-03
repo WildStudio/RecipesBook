@@ -14,6 +14,10 @@
 		8841764B236E0CA30081EDC5 /* RecipePuppyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8841764A236E0CA30081EDC5 /* RecipePuppyTests.swift */; };
 		8848FFEA236F2E290015F044 /* AlertControllerDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFE9236F2E290015F044 /* AlertControllerDisplayable.swift */; };
 		8848FFEC236F371E0015F044 /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFEB236F371E0015F044 /* Collection+Safe.swift */; };
+		8848FFEE236F3C950015F044 /* EmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFED236F3C950015F044 /* EmptyStateViewController.swift */; };
+		8848FFF0236F3CC10015F044 /* EmptyStateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8848FFEF236F3CC10015F044 /* EmptyStateViewController.xib */; };
+		8848FFF2236F3E860015F044 /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFF1236F3E860015F044 /* UIViewController+Child.swift */; };
+		8848FFF4236F3ECB0015F044 /* UIView+AutoLayoutHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFF3236F3ECB0015F044 /* UIView+AutoLayoutHelpers.swift */; };
 		88FD8A71236E0DFD003A7FE2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD8A68236E0DE6003A7FE2 /* Coordinator.swift */; };
 		88FD8A72236E0E00003A7FE2 /* RouteMediating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD8A69236E0DE6003A7FE2 /* RouteMediating.swift */; };
 		88FD8A73236E0E05003A7FE2 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD8A6F236E0DE6003A7FE2 /* RootCoordinator.swift */; };
@@ -72,6 +76,10 @@
 		8841764C236E0CA30081EDC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8848FFE9236F2E290015F044 /* AlertControllerDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerDisplayable.swift; sourceTree = "<group>"; };
 		8848FFEB236F371E0015F044 /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
+		8848FFED236F3C950015F044 /* EmptyStateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateViewController.swift; sourceTree = "<group>"; };
+		8848FFEF236F3CC10015F044 /* EmptyStateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyStateViewController.xib; sourceTree = "<group>"; };
+		8848FFF1236F3E860015F044 /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
+		8848FFF3236F3ECB0015F044 /* UIView+AutoLayoutHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayoutHelpers.swift"; sourceTree = "<group>"; };
 		88FD8A59236E0DE5003A7FE2 /* RecipesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesRepository.swift; sourceTree = "<group>"; };
 		88FD8A5A236E0DE5003A7FE2 /* RecipesRepositoryProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesRepositoryProviding.swift; sourceTree = "<group>"; };
 		88FD8A5C236E0DE6003A7FE2 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
@@ -163,6 +171,8 @@
 			children = (
 				8848FFE9236F2E290015F044 /* AlertControllerDisplayable.swift */,
 				8848FFEB236F371E0015F044 /* Collection+Safe.swift */,
+				8848FFF1236F3E860015F044 /* UIViewController+Child.swift */,
+				8848FFF3236F3ECB0015F044 /* UIView+AutoLayoutHelpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -187,6 +197,7 @@
 		88FD8A60236E0DE6003A7FE2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8848FFEF236F3CC10015F044 /* EmptyStateViewController.xib */,
 				88FD8A5E236E0DE6003A7FE2 /* Cells */,
 				88FD8A5F236E0DE6003A7FE2 /* SearchViewController.xib */,
 			);
@@ -206,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				88FD8A63236E0DE6003A7FE2 /* SearchViewController.swift */,
+				8848FFED236F3C950015F044 /* EmptyStateViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -347,6 +359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8848FFF0236F3CC10015F044 /* EmptyStateViewController.xib in Resources */,
 				88417640236E0CA30081EDC5 /* LaunchScreen.storyboard in Resources */,
 				88FD8A80236E0E87003A7FE2 /* Main.storyboard in Resources */,
 				8841763D236E0CA30081EDC5 /* Assets.xcassets in Resources */,
@@ -375,15 +388,18 @@
 				88FD8A71236E0DFD003A7FE2 /* Coordinator.swift in Sources */,
 				88417634236E0CA20081EDC5 /* AppDelegate.swift in Sources */,
 				88FD8A73236E0E05003A7FE2 /* RootCoordinator.swift in Sources */,
+				8848FFF4236F3ECB0015F044 /* UIView+AutoLayoutHelpers.swift in Sources */,
 				88FD8A7A236E0E36003A7FE2 /* SearchViewController.swift in Sources */,
 				88FD8A7D236E0E41003A7FE2 /* RecipesRepositoryProviding.swift in Sources */,
 				88FD8A8A236E10E8003A7FE2 /* RecipeCellViewModel.swift in Sources */,
 				88FD8A77236E0E25003A7FE2 /* RecipeCell.swift in Sources */,
 				88FD8A76236E0E17003A7FE2 /* RepositoryProvider.swift in Sources */,
 				88FD8A75236E0E17003A7FE2 /* DependencyProvider.swift in Sources */,
+				8848FFF2236F3E860015F044 /* UIViewController+Child.swift in Sources */,
 				88417636236E0CA20081EDC5 /* SceneDelegate.swift in Sources */,
 				88FD8A7C236E0E3E003A7FE2 /* RecipesRepository.swift in Sources */,
 				88FD8A74236E0E13003A7FE2 /* AppCoordinator.swift in Sources */,
+				8848FFEE236F3C950015F044 /* EmptyStateViewController.swift in Sources */,
 				88FD8A7B236E0E3B003A7FE2 /* GetRecipesWithIngredients.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
