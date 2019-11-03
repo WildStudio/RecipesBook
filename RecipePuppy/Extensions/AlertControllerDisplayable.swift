@@ -9,30 +9,37 @@
 import UIKit
 
 protocol AlertControllerDisplayable {
-    func displayAlert(with title: String, message: String, actions: [UIAlertAction]?)
+    func displayAlert(with configuration: AlertConfiguration)
 }
 
 extension AlertControllerDisplayable where Self: UIViewController {
     
     func displayAlert(
-        with title: String,
-        message: String,
-        actions: [UIAlertAction]? = nil
+        with configuration: AlertConfiguration
     ) {
-        guard presentedViewController == nil
-            else { return }
         
-        let alertController = UIAlertController(
-            title: title,
-            message: message,
+        let alert = UIAlertController(
+            title: configuration.title,
+            message: configuration.body,
             preferredStyle: .alert
         )
         
-        actions?.forEach { action in
-            alertController.addAction(action)
+        let actions = configuration.actions.map{ action -> UIAlertAction in
+            UIAlertAction(title: action.title, style: action.style.asUIAlertActionStyle) { _ in
+                action.handler?()
+            }
+        }
+       
+        if actions.isEmpty {
+            alert.addAction(
+                UIAlertAction(title: "OK", style: .default, handler: nil)
+            )
+        } else {
+            actions.forEach { alert.addAction($0) }
         }
         
-        present(alertController, animated: true)
+        
+        present(alert, animated: true)
     }
     
 }

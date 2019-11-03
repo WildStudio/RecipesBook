@@ -16,6 +16,7 @@ final class RootCoordinator: Coordinator {
     
     var children = [AnyObject]()
     let root: UINavigationController
+    let searchViewController: SearchViewController
     let mediator = RouteMediator()
     private var child: ChildCoordinator?
     
@@ -35,6 +36,8 @@ final class RootCoordinator: Coordinator {
             )
         )
         
+        self.searchViewController = searchViewController
+        
         setup()
     }
     
@@ -49,12 +52,19 @@ final class RootCoordinator: Coordinator {
     private func handleRouteRequest(to destination: RouteMediator.Destination) {
         switch destination {
         case .detail: presentDetail()
+        case .alert(let configuration):
+            showAlert(with: configuration)
         }
     }
     
     
     private func presentDetail() {
         
+    }
+    
+    
+    private func showAlert(with configuration: AlertConfiguration) {
+        searchViewController.displayAlert(with: configuration)
     }
     
     
@@ -69,6 +79,7 @@ extension RootCoordinator {
         
         enum Destination: Equatable {
             case detail
+            case alert(AlertConfiguration)
         }
         
         var onRouteRequest: ((Destination) -> Void)?

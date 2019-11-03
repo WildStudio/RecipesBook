@@ -64,7 +64,10 @@ class SearchViewModel {
             self.recipes = recipes
             delegate?.onFetchCompleted()
         case .failure(let error):
-            delegate?.onFetchFailed(with: error.localizedDescription)
+            let configuration = AlertConfiguration(
+                body: error.localizedDescription
+            )
+            routeMediator.route(to: .alert(configuration))
         }
     }
     

@@ -18,6 +18,9 @@
 		8848FFF0236F3CC10015F044 /* EmptyStateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8848FFEF236F3CC10015F044 /* EmptyStateViewController.xib */; };
 		8848FFF2236F3E860015F044 /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFF1236F3E860015F044 /* UIViewController+Child.swift */; };
 		8848FFF4236F3ECB0015F044 /* UIView+AutoLayoutHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFF3236F3ECB0015F044 /* UIView+AutoLayoutHelpers.swift */; };
+		8848FFF6236F42750015F044 /* Collection+SafeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFF5236F42750015F044 /* Collection+SafeTests.swift */; };
+		8848FFF9236F44890015F044 /* AlertConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFF8236F44890015F044 /* AlertConfiguration.swift */; };
+		8848FFFB236F469C0015F044 /* AlertConfiguration+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFFA236F469C0015F044 /* AlertConfiguration+Extension.swift */; };
 		88FD8A71236E0DFD003A7FE2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD8A68236E0DE6003A7FE2 /* Coordinator.swift */; };
 		88FD8A72236E0E00003A7FE2 /* RouteMediating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD8A69236E0DE6003A7FE2 /* RouteMediating.swift */; };
 		88FD8A73236E0E05003A7FE2 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD8A6F236E0DE6003A7FE2 /* RootCoordinator.swift */; };
@@ -80,6 +83,9 @@
 		8848FFEF236F3CC10015F044 /* EmptyStateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyStateViewController.xib; sourceTree = "<group>"; };
 		8848FFF1236F3E860015F044 /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
 		8848FFF3236F3ECB0015F044 /* UIView+AutoLayoutHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayoutHelpers.swift"; sourceTree = "<group>"; };
+		8848FFF5236F42750015F044 /* Collection+SafeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeTests.swift"; sourceTree = "<group>"; };
+		8848FFF8236F44890015F044 /* AlertConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertConfiguration.swift; sourceTree = "<group>"; };
+		8848FFFA236F469C0015F044 /* AlertConfiguration+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertConfiguration+Extension.swift"; sourceTree = "<group>"; };
 		88FD8A59236E0DE5003A7FE2 /* RecipesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesRepository.swift; sourceTree = "<group>"; };
 		88FD8A5A236E0DE5003A7FE2 /* RecipesRepositoryProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesRepositoryProviding.swift; sourceTree = "<group>"; };
 		88FD8A5C236E0DE6003A7FE2 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 		88417632236E0CA20081EDC5 /* RecipePuppy */ = {
 			isa = PBXGroup;
 			children = (
+				8848FFF7236F44750015F044 /* Models */,
 				8848FFE8236F2E100015F044 /* Extensions */,
 				88FD8A6A236E0DE6003A7FE2 /* Coordinators */,
 				88FD8A70236E0DE6003A7FE2 /* Root */,
@@ -162,6 +169,7 @@
 			children = (
 				8841764A236E0CA30081EDC5 /* RecipePuppyTests.swift */,
 				8841764C236E0CA30081EDC5 /* Info.plist */,
+				8848FFF5236F42750015F044 /* Collection+SafeTests.swift */,
 			);
 			path = RecipePuppyTests;
 			sourceTree = "<group>";
@@ -173,8 +181,17 @@
 				8848FFEB236F371E0015F044 /* Collection+Safe.swift */,
 				8848FFF1236F3E860015F044 /* UIViewController+Child.swift */,
 				8848FFF3236F3ECB0015F044 /* UIView+AutoLayoutHelpers.swift */,
+				8848FFFA236F469C0015F044 /* AlertConfiguration+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8848FFF7236F44750015F044 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8848FFF8236F44890015F044 /* AlertConfiguration.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		88FD8A5B236E0DE5003A7FE2 /* Repositories */ = {
@@ -381,8 +398,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8848FFF9236F44890015F044 /* AlertConfiguration.swift in Sources */,
 				88FD8A79236E0E33003A7FE2 /* SearchViewModel.swift in Sources */,
 				8848FFEC236F371E0015F044 /* Collection+Safe.swift in Sources */,
+				8848FFFB236F469C0015F044 /* AlertConfiguration+Extension.swift in Sources */,
 				88FD8A72236E0E00003A7FE2 /* RouteMediating.swift in Sources */,
 				8848FFEA236F2E290015F044 /* AlertControllerDisplayable.swift in Sources */,
 				88FD8A71236E0DFD003A7FE2 /* Coordinator.swift in Sources */,
@@ -408,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8848FFF6236F42750015F044 /* Collection+SafeTests.swift in Sources */,
 				8841764B236E0CA30081EDC5 /* RecipePuppyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -144,9 +144,7 @@ extension SearchViewController: UICollectionViewDelegate {
 extension SearchViewController: SearchViewModelDelegate {
     
     func onFetchFailed(with reason: String) {
-        let action = UIAlertAction(title: Constant.alertOK, style: .default)
-        displayAlert(with: Constant.alertTitle , message: reason, actions: [action])
-        refreshView()
+        
     }
     
     
