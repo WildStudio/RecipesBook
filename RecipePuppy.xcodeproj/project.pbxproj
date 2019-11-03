@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		88417634236E0CA20081EDC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88417633236E0CA20081EDC5 /* AppDelegate.swift */; };
 		88417636236E0CA20081EDC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88417635236E0CA20081EDC5 /* SceneDelegate.swift */; };
-		88417638236E0CA20081EDC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88417637236E0CA20081EDC5 /* ViewController.swift */; };
 		8841763D236E0CA30081EDC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8841763C236E0CA30081EDC5 /* Assets.xcassets */; };
 		88417640236E0CA30081EDC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8841763E236E0CA30081EDC5 /* LaunchScreen.storyboard */; };
 		8841764B236E0CA30081EDC5 /* RecipePuppyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8841764A236E0CA30081EDC5 /* RecipePuppyTests.swift */; };
@@ -63,7 +62,6 @@
 		88417630236E0CA20081EDC5 /* RecipePuppy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipePuppy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88417633236E0CA20081EDC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88417635236E0CA20081EDC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		88417637236E0CA20081EDC5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8841763C236E0CA30081EDC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8841763F236E0CA30081EDC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88417641236E0CA30081EDC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -138,7 +136,6 @@
 				88FD8A5B236E0DE5003A7FE2 /* Repositories */,
 				88417633236E0CA20081EDC5 /* AppDelegate.swift */,
 				88417635236E0CA20081EDC5 /* SceneDelegate.swift */,
-				88417637236E0CA20081EDC5 /* ViewController.swift */,
 				88FD8A7F236E0E77003A7FE2 /* Main.storyboard */,
 				8841763C236E0CA30081EDC5 /* Assets.xcassets */,
 				8841763E236E0CA30081EDC5 /* LaunchScreen.storyboard */,
@@ -360,7 +357,6 @@
 				88FD8A79236E0E33003A7FE2 /* SearchViewModel.swift in Sources */,
 				88FD8A72236E0E00003A7FE2 /* RouteMediating.swift in Sources */,
 				88FD8A71236E0DFD003A7FE2 /* Coordinator.swift in Sources */,
-				88417638236E0CA20081EDC5 /* ViewController.swift in Sources */,
 				88417634236E0CA20081EDC5 /* AppDelegate.swift in Sources */,
 				88FD8A73236E0E05003A7FE2 /* RootCoordinator.swift in Sources */,
 				88FD8A7A236E0E36003A7FE2 /* SearchViewController.swift in Sources */,
