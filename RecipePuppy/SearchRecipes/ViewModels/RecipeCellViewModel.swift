@@ -11,12 +11,24 @@ import Models
 
 final class RecipeCellViewModel {
     
+    private enum Constant {
+        static let tagText = "Has lactose"
+    }
+    
     var ingredients: String {
         return recipe.ingredients
     }
     
     var title: String {
         return recipe.title
+    }
+    
+    var tag: String {
+        Constant.tagText
+    }
+    
+    var shouldHideTagLabel: Bool {
+        return !recipe.hasLactose
     }
     
     private let recipe: Recipe

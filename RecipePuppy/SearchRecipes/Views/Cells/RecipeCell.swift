@@ -12,10 +12,14 @@ final class RecipeCell: UICollectionViewCell {
     
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var titleLabel: UILabel!
-    @IBOutlet private var subtTitleLabel: UILabel!
+    @IBOutlet private var descriptionLabel: UILabel!
+    @IBOutlet private var tagLabel: EdgeInsetLabel!
     
     func configure(with viewModel: RecipeCellViewModel) {
         titleLabel.text = viewModel.title
-        subtTitleLabel.text = viewModel.ingredients
+        descriptionLabel.text = viewModel.ingredients
+        tagLabel.text = viewModel.tag
+        tagLabel.isHidden = viewModel.shouldHideTagLabel
     }
+    
 }
