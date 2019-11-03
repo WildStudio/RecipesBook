@@ -18,16 +18,20 @@ protocol SearchViewModelDelegate: AnyObject {
 class SearchViewModel {
     
     private enum Constant {
-        static let updateIntervalInMilliSeconds = 400
+        static let title = "Recipes"
         static let minimumCharacters = 2
+        static let updateIntervalInSeconds = 0.4
     }
     
+    private var timer: Timer?
     private let getRecipes: GetRecipesWithIngredients
     private let routeMediator: RootCoordinator.RouteMediator
     
     private(set) var recipes: [Recipe]?
     
     weak var delegate: SearchViewModelDelegate?
+    
+    let title = Constant.title
     
     init(
         getRecipes: GetRecipesWithIngredients,
@@ -37,21 +41,21 @@ class SearchViewModel {
         self.routeMediator = routeMediator
     }
     
-    func initiate(searchTerm: String) {
-        fetchRecipes(with: searchTerm)
+    func initiate(searchQuery: String) {
+        fetchRecipes(with: searchQuery)
     }
     
-    // Returns a `RecipeCellViewModel`
+    /// Returns a `RecipeCellViewModel`
     ///- Parameters:
     ///     - index: the given index
     func recipeCellViewModel(at index: Int) -> RecipeCellViewModel? {
-        guard let recipe =  recipes?[index]
+        guard let recipe =  recipes?[safe: index]
             else { return nil }
         return RecipeCellViewModel(recipe)
     }
     
     
-    // Handle the results
+    /// Handle the search results
     /// - Parameters:
     ///     - result: A value that represents either a success or a failure, including an associated value in each case.
     private func handleResult(_ result: Result<[Recipe], Error>) {
@@ -64,11 +68,18 @@ class SearchViewModel {
         }
     }
     
-     // TODO: avoid spamming server
-    private func fetchRecipes(with ingredients: String = .init()) {
-        if ingredients.count > Constant.minimumCharacters {
-            getRecipes.execute(ingredients) { [weak self] result in
-                self?.handleResult(result)
+    
+    private func fetchRecipes(with searchQuery: String = .init()) {
+        if searchQuery.count > Constant.minimumCharacters {
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(
+                withTimeInterval: Constant.updateIntervalInSeconds,
+                repeats: false
+            ) { [weak self] _ in
+                self?.getRecipes.execute(searchQuery) { [weak self] result in
+                    self?.handleResult(result)
+                }
+                self?.timer?.invalidate()
             }
         }
     }
