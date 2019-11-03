@@ -26,15 +26,13 @@ final class AppCoordinator {
     
     // MARK: - Setup
     
-    func setup(for window: UIWindow?) {
-        setupRoot(for: window)
+    func setup(for viewController: UINavigationController) {
+        setupRoot(for: viewController)
     }
     
     
-    private func setupRoot(for window: UIWindow?) {
-        let coordinator = RootCoordinator(dependencyProvider: dependencyProvider)
-        window?.rootViewController = coordinator.root
-        window?.makeKeyAndVisible()
+    private func setupRoot(for viewController: UINavigationController) {
+        let coordinator = RootCoordinator(dependencyProvider: dependencyProvider, root: viewController)
         rootCoordinator = coordinator
     }
     

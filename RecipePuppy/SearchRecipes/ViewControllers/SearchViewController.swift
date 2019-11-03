@@ -15,7 +15,6 @@ class SearchViewController: UIViewController {
           static let alertTitle = "Something went wrong"
           static let alertOK = "OK"
           static let searchBarPlaceholder = "Start typing to search recipes..."
-          static let showDetailView = "showdetail"
           static let prefetchingCell = 5
     }
 
@@ -24,16 +23,12 @@ class SearchViewController: UIViewController {
     @IBOutlet private var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet private var collectionView: UICollectionView!
     
+    
     // MARK: - Life cycle
 
-    public init(viewModel: SearchViewModel) {
+    func configure(with viewModel: SearchViewModel) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        self.viewModel?.delegate = self
     }
 
     
@@ -41,12 +36,6 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setupSearchController()
         setupCollectionView()
-        viewModel?.initiate()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("YAAY")
     }
     
     
@@ -58,14 +47,12 @@ class SearchViewController: UIViewController {
         search?.searchBar.placeholder = Constant.searchBarPlaceholder
         navigationItem.searchController = search
         navigationItem.hidesSearchBarWhenScrolling = false
-        search?.searchBar.isHidden = true
     }
     
     
     private func setupCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(RecipeCell.self, forCellWithReuseIdentifier: Constant.cellReuseIdentifier)
     }
 
 }
@@ -77,15 +64,15 @@ extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text
             else { return }
-//        viewModel?.updateSearchResults(for: text)
+        viewModel?.initiate(searchTerm: text)
         collectionView.reloadData()
     }
+    
 }
 
 // MARK: UICollectionViewDataSource
 
 extension SearchViewController: UICollectionViewDataSource {
-    
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel?.recipes?.count ?? 0
@@ -93,9 +80,10 @@ extension SearchViewController: UICollectionViewDataSource {
 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.cellReuseIdentifier, for: indexPath) as? RecipeCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.cellReuseIdentifier, for: indexPath) as? RecipeCell,
+            let cellViewModel = viewModel?.recipeCellViewModel(at: indexPath.row)
             else { fatalError("Wrong cell type") }
-//        cell.configure(operation: operations[indexPath.item])
+        cell.configure(with: cellViewModel)
         return cell
     }
 
@@ -108,4 +96,24 @@ extension SearchViewController: UICollectionViewDelegate {
     }
 }
 
+
+// MARK: - View Model delegate
+
+extension SearchViewController: SearchViewModelDelegate {
+    
+    func onFetchFailed(with reason: String) {
+//        activityIndicator.stopAnimating()
+//        let action = UIAlertAction(title: Constant.alertOK, style: .default)
+//        displayAlert(with: Constant.alertTitle , message: reason, actions: [action])
+    }
+    
+    
+    
+    
+    func onFetchCompleted() {
+        collectionView.isHidden = false
+        collectionView.reloadData()
+    }
+    
+}
 

@@ -9,12 +9,25 @@
 import Foundation
 import Models
 
+protocol SearchViewModelDelegate: AnyObject {
+    func onFetchCompleted()
+    func onFetchFailed(with reason: String)
+}
+
+
 class SearchViewModel {
+    
+    private enum Constant {
+        static let updateIntervalInMilliSeconds = 400
+        static let minimumCharacters = 2
+    }
     
     private let getRecipes: GetRecipesWithIngredients
     private let routeMediator: RootCoordinator.RouteMediator
     
     private(set) var recipes: [Recipe]?
+    
+    weak var delegate: SearchViewModelDelegate?
     
     init(
         getRecipes: GetRecipesWithIngredients,
@@ -24,20 +37,40 @@ class SearchViewModel {
         self.routeMediator = routeMediator
     }
     
-    func initiate() {
-        fetchRecipes(with: "onions")
+    func initiate(searchTerm: String) {
+        fetchRecipes(with: searchTerm)
+    }
+    
+    // Returns a `RecipeCellViewModel`
+    ///- Parameters:
+    ///     - index: the given index
+    func recipeCellViewModel(at index: Int) -> RecipeCellViewModel? {
+        guard let recipe =  recipes?[index]
+            else { return nil }
+        return RecipeCellViewModel(recipe)
     }
     
     
+    // Handle the results
+    /// - Parameters:
+    ///     - result: A value that represents either a success or a failure, including an associated value in each case.
+    private func handleResult(_ result: Result<[Recipe], Error>) {
+        switch result {
+        case .success(let recipes):
+            self.recipes = recipes
+            delegate?.onFetchCompleted()
+        case .failure(let error):
+            delegate?.onFetchFailed(with: error.localizedDescription)
+        }
+    }
+    
+     // TODO: avoid spamming server
     private func fetchRecipes(with ingredients: String = .init()) {
-        getRecipes.execute(ingredients) { [weak self] result in
-            switch result {
-            case .success(let recipes):
-                self?.recipes = recipes
-            case .failure(let error):
-                print(error)
-                break
+        if ingredients.count > Constant.minimumCharacters {
+            getRecipes.execute(ingredients) { [weak self] result in
+                self?.handleResult(result)
             }
         }
     }
+        
 }

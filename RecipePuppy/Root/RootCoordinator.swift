@@ -6,7 +6,7 @@
 //  Copyright © 2019 badi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import RecipePuppyKit
 
 final class RootCoordinator: Coordinator {
@@ -15,16 +15,19 @@ final class RootCoordinator: Coordinator {
     // MARK: - Properties
     
     var children = [AnyObject]()
-    let root: SearchViewController
+    let root: UINavigationController
     let mediator = RouteMediator()
     private var child: ChildCoordinator?
     
     
     // MARK: - Life cycle
     
-    init(dependencyProvider: DependencyProvider) {
-        root = SearchViewController(
-            viewModel: SearchViewModel(
+    init(dependencyProvider: DependencyProvider, root: UINavigationController) {
+        self.root = root
+        guard let searchViewController = root.viewControllers.first as? SearchViewController else {
+                fatalError("The initial view controller should be set to a SearchViewController embedded into a UINavigationController!")
+        }
+       searchViewController.configure(with: SearchViewModel(
                 getRecipes: GetRecipesWithIngredients(
                     repository: dependencyProvider.provider.recipesRepository
                 ),
