@@ -34,7 +34,7 @@ final class ServiceTypeTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Download http://www.recipepuppy.com/api")
         
         // Create a background task to download the data
-        service.fetchRecipes(ingredients: Constant.ingredients) { response in
+        service.fetchRecipes(ingredients: Constant.ingredients, page: nil) { response in
             // Make sure we downloaded some data.
             XCTAssertNotNil(response, "No data was downloaded.")
             
@@ -53,7 +53,7 @@ final class ServiceTypeTests: XCTestCase {
             description: "searches with one or multiple ingredients"
         )
         var data: [Recipe]?
-        service.fetchRecipes(ingredients: Constant.ingredients) { response in
+        service.fetchRecipes(ingredients: Constant.ingredients, page: nil) { response in
             switch response {
             case .success(let recipes):
                 data = recipes

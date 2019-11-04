@@ -80,6 +80,7 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
     private func setupCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.prefetchDataSource = self
     }
     
     
@@ -111,7 +112,7 @@ extension SearchViewController: UISearchResultsUpdating {
 extension SearchViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.recipes?.count ?? 0
+        return viewModel?.recipes.count ?? 0
     }
     
     
@@ -143,14 +144,24 @@ extension SearchViewController: UICollectionViewDelegate {
 
 extension SearchViewController: SearchViewModelDelegate {
     
-    func onFetchFailed(with reason: String) {
-        
-    }
-    
-    
     func onFetchCompleted() {
         refreshView()
     }
     
 }
 
+
+extension SearchViewController: UICollectionViewDataSourcePrefetching {
+    
+    func isLoadingCell(for indexPath: IndexPath) -> Bool {
+        guard let viewModel = self.viewModel
+            else { return false }
+        return indexPath.row >= viewModel.recipes.count - Constant.prefetchingCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        if indexPaths.contains(where: isLoadingCell) {
+             viewModel?.fetchRecipes()
+        }
+    }
+}

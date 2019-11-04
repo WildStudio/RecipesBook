@@ -11,7 +11,6 @@ import Models
 
 protocol SearchViewModelDelegate: AnyObject {
     func onFetchCompleted()
-    func onFetchFailed(with reason: String)
 }
 
 
@@ -24,10 +23,12 @@ class SearchViewModel {
     }
     
     private var timer: Timer?
+    private var currentPage = 1
+    private var searchQuery = String.init()
     private let getRecipes: GetRecipesWithIngredients
     private let routeMediator: RootCoordinator.RouteMediator
     
-    private(set) var recipes: [Recipe]?
+    private(set) var recipes = [Recipe]()
     
     weak var delegate: SearchViewModelDelegate?
     
@@ -41,15 +42,20 @@ class SearchViewModel {
         self.routeMediator = routeMediator
     }
     
+    /// Intiate searching a `Recipe`
+    ///- Parameters:
+    ///     - searchQuery: one or multiple ingredients
     func initiate(searchQuery: String) {
-        fetchRecipes(with: searchQuery)
+        self.searchQuery = searchQuery.lowercased()
+        recipes.removeAll()
+        fetchRecipes()
     }
     
     /// Returns a `RecipeCellViewModel`
     ///- Parameters:
     ///     - index: the given index
     func recipeCellViewModel(at index: Int) -> RecipeCellViewModel? {
-        guard let recipe =  recipes?[safe: index]
+        guard let recipe =  recipes[safe: index]
             else { return nil }
         return RecipeCellViewModel(recipe)
     }
@@ -61,7 +67,8 @@ class SearchViewModel {
     private func handleResult(_ result: Result<[Recipe], Error>) {
         switch result {
         case .success(let recipes):
-            self.recipes = recipes
+            self.recipes.append(contentsOf: recipes)
+            self.currentPage += 1
             delegate?.onFetchCompleted()
         case .failure(let error):
             let configuration = AlertConfiguration(
@@ -72,19 +79,18 @@ class SearchViewModel {
     }
     
     
-    private func fetchRecipes(with searchQuery: String = .init()) {
+    func fetchRecipes() {
         if searchQuery.count > Constant.minimumCharacters {
             timer?.invalidate()
             timer = Timer.scheduledTimer(
                 withTimeInterval: Constant.updateIntervalInSeconds,
                 repeats: false
             ) { [weak self] _ in
-                self?.getRecipes.execute(searchQuery) { [weak self] result in
+                self?.getRecipes.execute(self?.searchQuery ?? .init(), page: self?.currentPage) { [weak self] result in
                     self?.handleResult(result)
                 }
                 self?.timer?.invalidate()
             }
         }
     }
-        
 }
