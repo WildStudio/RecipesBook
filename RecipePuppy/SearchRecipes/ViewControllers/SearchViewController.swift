@@ -150,6 +150,7 @@ extension SearchViewController: SearchViewModelDelegate {
     
 }
 
+// MARK: - UICollectionViewDataSourcePrefetching
 
 extension SearchViewController: UICollectionViewDataSourcePrefetching {
     
@@ -159,9 +160,11 @@ extension SearchViewController: UICollectionViewDataSourcePrefetching {
         return indexPath.row >= viewModel.recipes.count - Constant.prefetchingCell
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         if indexPaths.contains(where: isLoadingCell) {
              viewModel?.fetchRecipes()
         }
     }
+    
 }

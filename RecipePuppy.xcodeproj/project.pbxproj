@@ -13,6 +13,9 @@
 		88417640236E0CA30081EDC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8841763E236E0CA30081EDC5 /* LaunchScreen.storyboard */; };
 		8841764B236E0CA30081EDC5 /* RecipePuppyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8841764A236E0CA30081EDC5 /* RecipePuppyTests.swift */; };
 		8848000823701B450015F044 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8848000723701B450015F044 /* SDWebImage */; };
+		8848000D23704A3A0015F044 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848000C23704A3A0015F044 /* DetailViewController.swift */; };
+		8848001023704AB80015F044 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8848000F23704AB80015F044 /* DetailViewController.xib */; };
+		8848001323704DC60015F044 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848001223704DC60015F044 /* DetailViewModel.swift */; };
 		8848FFEA236F2E290015F044 /* AlertControllerDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFE9236F2E290015F044 /* AlertControllerDisplayable.swift */; };
 		8848FFEC236F371E0015F044 /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFEB236F371E0015F044 /* Collection+Safe.swift */; };
 		8848FFEE236F3C950015F044 /* EmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFED236F3C950015F044 /* EmptyStateViewController.swift */; };
@@ -80,6 +83,9 @@
 		88417646236E0CA30081EDC5 /* RecipePuppyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipePuppyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8841764A236E0CA30081EDC5 /* RecipePuppyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePuppyTests.swift; sourceTree = "<group>"; };
 		8841764C236E0CA30081EDC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8848000C23704A3A0015F044 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8848000F23704AB80015F044 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		8848001223704DC60015F044 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		8848FFE9236F2E290015F044 /* AlertControllerDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerDisplayable.swift; sourceTree = "<group>"; };
 		8848FFEB236F371E0015F044 /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		8848FFED236F3C950015F044 /* EmptyStateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +164,7 @@
 				88FD8A6A236E0DE6003A7FE2 /* Coordinators */,
 				88FD8A70236E0DE6003A7FE2 /* Root */,
 				88FD8A6E236E0DE6003A7FE2 /* App */,
+				8848000A237049FC0015F044 /* Detail */,
 				88FD8A67236E0DE6003A7FE2 /* SearchRecipes */,
 				88FD8A5B236E0DE5003A7FE2 /* Repositories */,
 				88417633236E0CA20081EDC5 /* AppDelegate.swift */,
@@ -178,6 +185,40 @@
 				8848FFF5236F42750015F044 /* Collection+SafeTests.swift */,
 			);
 			path = RecipePuppyTests;
+			sourceTree = "<group>";
+		};
+		8848000A237049FC0015F044 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				8848001123704D6A0015F044 /* View Models */,
+				8848000E23704A520015F044 /* Views */,
+				8848000B23704A2A0015F044 /* Controllers */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		8848000B23704A2A0015F044 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8848000C23704A3A0015F044 /* DetailViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8848000E23704A520015F044 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8848000F23704AB80015F044 /* DetailViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8848001123704D6A0015F044 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				8848001223704DC60015F044 /* DetailViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 		8848FFE8236F2E100015F044 /* Extensions */ = {
@@ -391,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8848FFF0236F3CC10015F044 /* EmptyStateViewController.xib in Resources */,
+				8848001023704AB80015F044 /* DetailViewController.xib in Resources */,
 				88417640236E0CA30081EDC5 /* LaunchScreen.storyboard in Resources */,
 				88FD8A80236E0E87003A7FE2 /* Main.storyboard in Resources */,
 				8841763D236E0CA30081EDC5 /* Assets.xcassets in Resources */,
@@ -414,12 +456,14 @@
 			files = (
 				8848FFF9236F44890015F044 /* AlertConfiguration.swift in Sources */,
 				88FD8A79236E0E33003A7FE2 /* SearchViewModel.swift in Sources */,
+				8848000D23704A3A0015F044 /* DetailViewController.swift in Sources */,
 				8848FFEC236F371E0015F044 /* Collection+Safe.swift in Sources */,
 				8848FFFB236F469C0015F044 /* AlertConfiguration+Extension.swift in Sources */,
 				88FD8A72236E0E00003A7FE2 /* RouteMediating.swift in Sources */,
 				8848FFEA236F2E290015F044 /* AlertControllerDisplayable.swift in Sources */,
 				88FD8A71236E0DFD003A7FE2 /* Coordinator.swift in Sources */,
 				88417634236E0CA20081EDC5 /* AppDelegate.swift in Sources */,
+				8848001323704DC60015F044 /* DetailViewModel.swift in Sources */,
 				88FD8A73236E0E05003A7FE2 /* RootCoordinator.swift in Sources */,
 				8848FFF4236F3ECB0015F044 /* UIView+AutoLayoutHelpers.swift in Sources */,
 				8848FFFF236F77BE0015F044 /* UILabel+Rotation.swift in Sources */,

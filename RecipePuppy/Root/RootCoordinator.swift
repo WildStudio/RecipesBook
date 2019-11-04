@@ -61,14 +61,17 @@ final class RootCoordinator: Coordinator {
     
     
     private func present(_ recipe: Recipe) {
+        let detailController = DetailViewController()
         
+        guard let url = recipe.hrefURL else { return }
+        detailController.configure(with: DetailViewModel(url))
+        searchViewController.present(detailController, animated: true)
     }
     
     
     private func showAlert(with configuration: AlertConfiguration) {
         searchViewController.displayAlert(with: configuration)
     }
-    
     
 }
 
