@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Models
 import RecipePuppyKit
 
 final class RootCoordinator: Coordinator {
@@ -51,14 +52,15 @@ final class RootCoordinator: Coordinator {
     
     private func handleRouteRequest(to destination: RouteMediator.Destination) {
         switch destination {
-        case .detail: presentDetail()
+        case .detail(let recipe):
+            present(recipe)
         case .alert(let configuration):
             showAlert(with: configuration)
         }
     }
     
     
-    private func presentDetail() {
+    private func present(_ recipe: Recipe) {
         
     }
     
@@ -78,7 +80,7 @@ extension RootCoordinator {
     final class RouteMediator: RouteMediating {
         
         enum Destination: Equatable {
-            case detail
+            case detail(Recipe)
             case alert(AlertConfiguration)
         }
         

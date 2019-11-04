@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Recipe: Codable {
+public struct Recipe: Codable, Equatable {
     
     private enum Constant {
         static let milk = "milk"

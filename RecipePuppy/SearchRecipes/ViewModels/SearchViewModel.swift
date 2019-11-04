@@ -93,4 +93,12 @@ class SearchViewModel {
             }
         }
     }
+    
+    // MARK: - User Actions
+
+    func didSelectCell(at indexPath: IndexPath) {
+        guard let recipe = recipes[safe: indexPath.row]
+        else { return }
+        routeMediator.route(to: .detail(recipe))
+    }
 }
