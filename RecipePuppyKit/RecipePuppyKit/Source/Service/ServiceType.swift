@@ -17,7 +17,7 @@ public protocol ServiceType {
     
     init(serverConfig: ServerConfigType)
     
-    func fetchRecipes(ingredients: String, completion: @escaping (Result<[Recipe], Error>) -> Void)
+    func fetchRecipes(ingredients: String,  page: Int?, completion: @escaping (Result<[Recipe], Error>) -> Void)
 }
 
 

@@ -10,14 +10,15 @@ import Foundation
 
 enum Route {
     
-    case recipes(ingredients: String)
+    case recipes(ingredients: String, page: Int?)
     
     var requestProperties:
         (method: HTTPMethod, path: String, query: [String: Any]) {
         switch self {
-        case let .recipes(ingredients):
+        case let .recipes(ingredients, page):
             var params: [String: Any] = [:]
             params["i"] = ingredients
+            params["p"] = page
             return (.GET, "/api", params)
         }
     }

@@ -21,9 +21,10 @@ struct GetRecipesWithIngredients {
     
     func execute(
         _ ingredients: String,
+        page: Int?,
         completion: @escaping (Result<[Recipe], Error>) -> Void
     ) {
-        repository.get(with: ingredients, completion: completion)
+        repository.get(with: ingredients, page: page, completion: completion)
     }
 
 }

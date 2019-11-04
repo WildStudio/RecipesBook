@@ -22,9 +22,10 @@ struct RecipesRepository {
     
     func get(
         with ingredients: String,
+        page: Int? = nil,
         completion: @escaping (Result<[Recipe], Error>) -> Void
     ) {
-        service.fetchRecipes(ingredients: ingredients) { response  in
+        service.fetchRecipes(ingredients: ingredients, page: page) { response  in
             switch response {
             case .success(let recipes):
                 completion(.success(recipes))

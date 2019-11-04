@@ -26,9 +26,10 @@ public struct Service: ServiceType {
     
     public func fetchRecipes(
         ingredients: String,
+        page: Int? = nil,
         completion: @escaping (Result<[Recipe], Error>) -> Void
     ) {
-        request(.recipes(ingredients: ingredients)) { result in
+        request(.recipes(ingredients: ingredients, page: page)) { result in
             switch result {
             case .success(let data):
                 guard let users = JSON.decodeModels(Keys.results, data) as [Recipe]?

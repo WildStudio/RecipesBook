@@ -15,7 +15,7 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
         static let alertTitle = "Something went wrong"
         static let alertOK = "OK"
         static let searchBarPlaceholder = "Start typing to search recipes..."
-        static let prefetchingCell = 5
+        static let prefetchingCell = 3
     }
     
     private var timer: Timer?
@@ -80,6 +80,7 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
     private func setupCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.prefetchDataSource = self
     }
     
     
@@ -111,7 +112,7 @@ extension SearchViewController: UISearchResultsUpdating {
 extension SearchViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.recipes?.count ?? 0
+        return viewModel?.recipes.count ?? 0
     }
     
     
@@ -154,3 +155,18 @@ extension SearchViewController: SearchViewModelDelegate {
     
 }
 
+
+extension SearchViewController: UICollectionViewDataSourcePrefetching {
+    
+    func isLoadingCell(for indexPath: IndexPath) -> Bool {
+        guard let viewModel = self.viewModel
+            else { return false }
+        return indexPath.row >= viewModel.recipes.count - Constant.prefetchingCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        if indexPaths.contains(where: isLoadingCell) {
+             viewModel?.fetchRecipes()
+        }
+    }
+}
