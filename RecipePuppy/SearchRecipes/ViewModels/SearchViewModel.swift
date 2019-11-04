@@ -11,7 +11,6 @@ import Models
 
 protocol SearchViewModelDelegate: AnyObject {
     func onFetchCompleted()
-    func onFetchFailed(with reason: String)
 }
 
 
@@ -43,9 +42,13 @@ class SearchViewModel {
         self.routeMediator = routeMediator
     }
     
+    /// Intiate searching a `Recipe`
+    ///- Parameters:
+    ///     - searchQuery: one or multiple ingredients
     func initiate(searchQuery: String) {
-        self.searchQuery = searchQuery
-        fetchRecipes(with: searchQuery, page: currentPage)
+        self.searchQuery = searchQuery.lowercased()
+        recipes.removeAll()
+        fetchRecipes()
     }
     
     /// Returns a `RecipeCellViewModel`
@@ -76,33 +79,18 @@ class SearchViewModel {
     }
     
     
-    private func fetchRecipes(with searchQuery: String = .init(), page: Int? = nil) {
+    func fetchRecipes() {
         if searchQuery.count > Constant.minimumCharacters {
             timer?.invalidate()
             timer = Timer.scheduledTimer(
                 withTimeInterval: Constant.updateIntervalInSeconds,
                 repeats: false
             ) { [weak self] _ in
-                self?.getRecipes.execute(searchQuery, page: page) { [weak self] result in
+                self?.getRecipes.execute(self?.searchQuery ?? .init(), page: self?.currentPage) { [weak self] result in
                     self?.handleResult(result)
                 }
                 self?.timer?.invalidate()
             }
         }
     }
-      
-    func fetchRecipes() {
-        if searchQuery.count > Constant.minimumCharacters {
-               timer?.invalidate()
-               timer = Timer.scheduledTimer(
-                   withTimeInterval: Constant.updateIntervalInSeconds,
-                   repeats: false
-               ) { [weak self] _ in
-                self?.getRecipes.execute(self?.searchQuery ?? .init(), page: self?.currentPage) { [weak self] result in
-                       self?.handleResult(result)
-                   }
-                   self?.timer?.invalidate()
-               }
-           }
-       }
 }

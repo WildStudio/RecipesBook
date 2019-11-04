@@ -15,7 +15,7 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
         static let alertTitle = "Something went wrong"
         static let alertOK = "OK"
         static let searchBarPlaceholder = "Start typing to search recipes..."
-        static let prefetchingCell = 3
+        static let prefetchingCell = 5
     }
     
     private var timer: Timer?
@@ -143,11 +143,6 @@ extension SearchViewController: UICollectionViewDelegate {
 // MARK: - View Model delegate
 
 extension SearchViewController: SearchViewModelDelegate {
-    
-    func onFetchFailed(with reason: String) {
-        
-    }
-    
     
     func onFetchCompleted() {
         refreshView()
