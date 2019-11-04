@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class RecipeCell: UICollectionViewCell {
     
@@ -20,6 +21,10 @@ final class RecipeCell: UICollectionViewCell {
         descriptionLabel.text = viewModel.ingredients
         tagLabel.text = viewModel.tag
         tagLabel.isHidden = viewModel.shouldHideTagLabel
+        
+        if let imageURL = viewModel.imageURL {
+            imageView?.sd_setImage(with: imageURL)
+        }
     }
     
 }

@@ -16,11 +16,11 @@ final class RecipeCellViewModel {
     }
     
     var ingredients: String {
-        return recipe.ingredients
+        recipe.ingredients
     }
     
     var title: String {
-        return recipe.title
+        recipe.title
     }
     
     var tag: String {
@@ -28,7 +28,11 @@ final class RecipeCellViewModel {
     }
     
     var shouldHideTagLabel: Bool {
-        return !recipe.hasLactose
+        !recipe.hasLactose
+    }
+    
+    var imageURL: URL? {
+        recipe.thumbnailURL
     }
     
     private let recipe: Recipe
