@@ -24,7 +24,7 @@ final class RootCoordinator: Coordinator {
     
     // MARK: - Life cycle
     
-    init(dependencyProvider: DependencyProvider, root: UINavigationController) {
+    init(dependencyProvider: DependenciesProviding, root: UINavigationController) {
         self.root = root
         guard let searchViewController = root.viewControllers.first as? SearchViewController else {
                 fatalError("The initial view controller should be set to a SearchViewController embedded into a UINavigationController!")

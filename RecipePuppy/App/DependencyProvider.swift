@@ -12,18 +12,23 @@ import RecipePuppyKit
 /// The entire list of dependencies.
 typealias Dependencies = RecipesRepositoryProviding
 
-class DependencyProvider: Dependencies {
+protocol DependenciesProviding {
+    var provider: RepositoryProvider { get }
+    var service: ServiceType { get }
+}
+
+class DependencyProvider: DependenciesProviding {
 
     let provider: RepositoryProvider
-    let recipePuppyService: ServiceType
+    let service: ServiceType
 
 
     required init(
         provider: RepositoryProvider,
-        recipePuppyService: ServiceType
+        service: ServiceType
     ) {
         self.provider = provider
-        self.recipePuppyService = recipePuppyService
+        self.service = service
     }
     
 }

@@ -16,6 +16,13 @@
 		8848000D23704A3A0015F044 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848000C23704A3A0015F044 /* DetailViewController.swift */; };
 		8848001023704AB80015F044 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8848000F23704AB80015F044 /* DetailViewController.xib */; };
 		8848001323704DC60015F044 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848001223704DC60015F044 /* DetailViewModel.swift */; };
+		8848001623709C840015F044 /* WindowTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848001523709C840015F044 /* WindowTestCase.swift */; };
+		884800182371D8460015F044 /* XCTest+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800172371D8460015F044 /* XCTest+UIAlertController.swift */; };
+		8848001A2371D8D20015F044 /* AlertConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800192371D8D20015F044 /* AlertConfigurationBuilder.swift */; };
+		8848001C2371D9420015F044 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8848001B2371D9420015F044 /* SDWebImage */; };
+		8848001F2371D9BC0015F044 /* RootCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848001E2371D9BC0015F044 /* RootCoordinatorTests.swift */; };
+		884800242371DB700015F044 /* MockServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800232371DB700015F044 /* MockServiceProvider.swift */; };
+		884800262371DFDA0015F044 /* UIAlert+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800252371DFDA0015F044 /* UIAlert+Configuration.swift */; };
 		8848FFEA236F2E290015F044 /* AlertControllerDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFE9236F2E290015F044 /* AlertControllerDisplayable.swift */; };
 		8848FFEC236F371E0015F044 /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFEB236F371E0015F044 /* Collection+Safe.swift */; };
 		8848FFEE236F3C950015F044 /* EmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFED236F3C950015F044 /* EmptyStateViewController.swift */; };
@@ -86,6 +93,12 @@
 		8848000C23704A3A0015F044 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8848000F23704AB80015F044 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		8848001223704DC60015F044 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		8848001523709C840015F044 /* WindowTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTestCase.swift; sourceTree = "<group>"; };
+		884800172371D8460015F044 /* XCTest+UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+UIAlertController.swift"; sourceTree = "<group>"; };
+		884800192371D8D20015F044 /* AlertConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertConfigurationBuilder.swift; sourceTree = "<group>"; };
+		8848001E2371D9BC0015F044 /* RootCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinatorTests.swift; sourceTree = "<group>"; };
+		884800232371DB700015F044 /* MockServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceProvider.swift; sourceTree = "<group>"; };
+		884800252371DFDA0015F044 /* UIAlert+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlert+Configuration.swift"; sourceTree = "<group>"; };
 		8848FFE9236F2E290015F044 /* AlertControllerDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerDisplayable.swift; sourceTree = "<group>"; };
 		8848FFEB236F371E0015F044 /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		8848FFED236F3C950015F044 /* EmptyStateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8848001C2371D9420015F044 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +194,9 @@
 		88417649236E0CA30081EDC5 /* RecipePuppyTests */ = {
 			isa = PBXGroup;
 			children = (
+				884800202371DA2A0015F044 /* Mocks */,
+				8848001D2371D97F0015F044 /* Coordinators */,
+				8848001423709C6B0015F044 /* TestHelpers */,
 				8841764A236E0CA30081EDC5 /* RecipePuppyTests.swift */,
 				8841764C236E0CA30081EDC5 /* Info.plist */,
 				8848FFF5236F42750015F044 /* Collection+SafeTests.swift */,
@@ -219,6 +236,33 @@
 				8848001223704DC60015F044 /* DetailViewModel.swift */,
 			);
 			path = "View Models";
+			sourceTree = "<group>";
+		};
+		8848001423709C6B0015F044 /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				884800192371D8D20015F044 /* AlertConfigurationBuilder.swift */,
+				8848001523709C840015F044 /* WindowTestCase.swift */,
+				884800172371D8460015F044 /* XCTest+UIAlertController.swift */,
+				884800252371DFDA0015F044 /* UIAlert+Configuration.swift */,
+			);
+			path = TestHelpers;
+			sourceTree = "<group>";
+		};
+		8848001D2371D97F0015F044 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				8848001E2371D9BC0015F044 /* RootCoordinatorTests.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		884800202371DA2A0015F044 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				884800232371DB700015F044 /* MockServiceProvider.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		8848FFE8236F2E100015F044 /* Extensions */ = {
@@ -381,6 +425,9 @@
 				88417648236E0CA30081EDC5 /* PBXTargetDependency */,
 			);
 			name = RecipePuppyTests;
+			packageProductDependencies = (
+				8848001B2371D9420015F044 /* SDWebImage */,
+			);
 			productName = RecipePuppyTests;
 			productReference = 88417646236E0CA30081EDC5 /* RecipePuppyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -487,8 +534,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				884800262371DFDA0015F044 /* UIAlert+Configuration.swift in Sources */,
+				8848001623709C840015F044 /* WindowTestCase.swift in Sources */,
+				884800242371DB700015F044 /* MockServiceProvider.swift in Sources */,
 				8848FFF6236F42750015F044 /* Collection+SafeTests.swift in Sources */,
+				884800182371D8460015F044 /* XCTest+UIAlertController.swift in Sources */,
 				8841764B236E0CA30081EDC5 /* RecipePuppyTests.swift in Sources */,
+				8848001F2371D9BC0015F044 /* RootCoordinatorTests.swift in Sources */,
+				8848001A2371D8D20015F044 /* AlertConfigurationBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,6 +806,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		8848000723701B450015F044 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8848000623701B450015F044 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		8848001B2371D9420015F044 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8848000623701B450015F044 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
