@@ -23,6 +23,7 @@
 		8848001F2371D9BC0015F044 /* RootCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848001E2371D9BC0015F044 /* RootCoordinatorTests.swift */; };
 		884800242371DB700015F044 /* MockServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800232371DB700015F044 /* MockServiceProvider.swift */; };
 		884800262371DFDA0015F044 /* UIAlert+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800252371DFDA0015F044 /* UIAlert+Configuration.swift */; };
+		884800292371E47E0015F044 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800282371E47E0015F044 /* SearchViewModelTests.swift */; };
 		8848FFEA236F2E290015F044 /* AlertControllerDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFE9236F2E290015F044 /* AlertControllerDisplayable.swift */; };
 		8848FFEC236F371E0015F044 /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFEB236F371E0015F044 /* Collection+Safe.swift */; };
 		8848FFEE236F3C950015F044 /* EmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFED236F3C950015F044 /* EmptyStateViewController.swift */; };
@@ -99,6 +100,7 @@
 		8848001E2371D9BC0015F044 /* RootCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinatorTests.swift; sourceTree = "<group>"; };
 		884800232371DB700015F044 /* MockServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceProvider.swift; sourceTree = "<group>"; };
 		884800252371DFDA0015F044 /* UIAlert+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlert+Configuration.swift"; sourceTree = "<group>"; };
+		884800282371E47E0015F044 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
 		8848FFE9236F2E290015F044 /* AlertControllerDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerDisplayable.swift; sourceTree = "<group>"; };
 		8848FFEB236F371E0015F044 /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		8848FFED236F3C950015F044 /* EmptyStateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		88417649236E0CA30081EDC5 /* RecipePuppyTests */ = {
 			isa = PBXGroup;
 			children = (
+				884800272371E4650015F044 /* ViewModels */,
 				884800202371DA2A0015F044 /* Mocks */,
 				8848001D2371D97F0015F044 /* Coordinators */,
 				8848001423709C6B0015F044 /* TestHelpers */,
@@ -263,6 +266,14 @@
 				884800232371DB700015F044 /* MockServiceProvider.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		884800272371E4650015F044 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				884800282371E47E0015F044 /* SearchViewModelTests.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		8848FFE8236F2E100015F044 /* Extensions */ = {
@@ -542,6 +553,7 @@
 				8841764B236E0CA30081EDC5 /* RecipePuppyTests.swift in Sources */,
 				8848001F2371D9BC0015F044 /* RootCoordinatorTests.swift in Sources */,
 				8848001A2371D8D20015F044 /* AlertConfigurationBuilder.swift in Sources */,
+				884800292371E47E0015F044 /* SearchViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

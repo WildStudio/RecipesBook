@@ -25,7 +25,7 @@ class SearchViewModel {
     private var timer: Timer?
     private var currentPage = 1
     private var searchQuery = String.init()
-    private let getRecipes: GetRecipesWithIngredients
+    private let getRecipes: GetRecipesUsesCaseType
     private let routeMediator: RootCoordinator.RouteMediator
     
     private(set) var recipes = [Recipe]()
@@ -35,7 +35,7 @@ class SearchViewModel {
     let title = Constant.title
     
     init(
-        getRecipes: GetRecipesWithIngredients,
+        getRecipes: GetRecipesUsesCaseType,
         routeMediator: RootCoordinator.RouteMediator
     ) {
         self.getRecipes = getRecipes

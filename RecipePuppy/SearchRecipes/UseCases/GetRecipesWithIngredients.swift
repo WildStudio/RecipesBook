@@ -9,7 +9,7 @@
 import Foundation
 import Models
 
-struct GetRecipesWithIngredients {
+struct GetRecipesWithIngredients: GetRecipesUsesCaseType {
 
     private let repository: RecipesRepository
 
@@ -27,4 +27,11 @@ struct GetRecipesWithIngredients {
         repository.get(with: ingredients, page: page, completion: completion)
     }
 
+}
+
+protocol GetRecipesUsesCaseType {
+    func execute( _ ingredients: String,
+           page: Int?,
+           completion: @escaping (Result<[Recipe], Error>) -> Void
+       )
 }
