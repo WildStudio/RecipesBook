@@ -11,7 +11,6 @@
 		88417636236E0CA20081EDC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88417635236E0CA20081EDC5 /* SceneDelegate.swift */; };
 		8841763D236E0CA30081EDC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8841763C236E0CA30081EDC5 /* Assets.xcassets */; };
 		88417640236E0CA30081EDC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8841763E236E0CA30081EDC5 /* LaunchScreen.storyboard */; };
-		8841764B236E0CA30081EDC5 /* RecipePuppyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8841764A236E0CA30081EDC5 /* RecipePuppyTests.swift */; };
 		8848000823701B450015F044 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8848000723701B450015F044 /* SDWebImage */; };
 		8848000D23704A3A0015F044 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848000C23704A3A0015F044 /* DetailViewController.swift */; };
 		8848001023704AB80015F044 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8848000F23704AB80015F044 /* DetailViewController.xib */; };
@@ -93,7 +92,6 @@
 		8841763F236E0CA30081EDC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88417641236E0CA30081EDC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88417646236E0CA30081EDC5 /* RecipePuppyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipePuppyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8841764A236E0CA30081EDC5 /* RecipePuppyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePuppyTests.swift; sourceTree = "<group>"; };
 		8841764C236E0CA30081EDC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8848000C23704A3A0015F044 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8848000F23704AB80015F044 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
@@ -208,7 +206,6 @@
 				884800202371DA2A0015F044 /* Mocks */,
 				8848001D2371D97F0015F044 /* Coordinators */,
 				8848001423709C6B0015F044 /* TestHelpers */,
-				8841764A236E0CA30081EDC5 /* RecipePuppyTests.swift */,
 				8841764C236E0CA30081EDC5 /* Info.plist */,
 				8848FFF5236F42750015F044 /* Collection+SafeTests.swift */,
 			);
@@ -563,7 +560,6 @@
 				884800242371DB700015F044 /* MockServiceProvider.swift in Sources */,
 				8848FFF6236F42750015F044 /* Collection+SafeTests.swift in Sources */,
 				884800182371D8460015F044 /* XCTest+UIAlertController.swift in Sources */,
-				8841764B236E0CA30081EDC5 /* RecipePuppyTests.swift in Sources */,
 				884800312372C5BB0015F044 /* TestError.swift in Sources */,
 				8848002B2372BBB80015F044 /* MockGetRecipesUseCase.swift in Sources */,
 				8848001F2371D9BC0015F044 /* RootCoordinatorTests.swift in Sources */,
