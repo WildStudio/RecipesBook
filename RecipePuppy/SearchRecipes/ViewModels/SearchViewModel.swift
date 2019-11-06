@@ -26,6 +26,7 @@ class SearchViewModel {
     private var currentPage = 1
     private var searchQuery = String.init()
     private let getRecipes: GetRecipesUsesCaseType
+    private let favoritesRecipes: FavoritesRecipesUseCaseType
     private let routeMediator: RootCoordinator.RouteMediator
     
     private(set) var recipes = [Recipe]()
@@ -36,9 +37,11 @@ class SearchViewModel {
     
     init(
         getRecipes: GetRecipesUsesCaseType,
+        favoritesRecipes: FavoritesRecipesUseCaseType,
         routeMediator: RootCoordinator.RouteMediator
     ) {
         self.getRecipes = getRecipes
+        self.favoritesRecipes = favoritesRecipes
         self.routeMediator = routeMediator
     }
     
@@ -77,7 +80,7 @@ class SearchViewModel {
     func recipeCellViewModel(at index: Int) -> RecipeCellViewModel? {
         guard let recipe =  recipes[safe: index]
             else { return nil }
-        return RecipeCellViewModel(recipe)
+        return RecipeCellViewModel(recipe, favoritesRecipes)
     }
     
     

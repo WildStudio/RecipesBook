@@ -122,7 +122,9 @@ extension SearchViewController: UICollectionViewDataSource {
             for: indexPath
             ) as? RecipeCell,
             let cellViewModel = viewModel?.recipeCellViewModel(at: indexPath.row)
-            else { fatalError("Wrong cell type") }
+            else { assertionFailure("Wrong cell type")
+                return UICollectionViewCell()
+        }
         
         cell.configure(with: cellViewModel)
         return cell

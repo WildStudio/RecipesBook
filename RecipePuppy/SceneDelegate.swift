@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }()
     
     private lazy var dependencyProvider: DependencyProvider = {
-        return makeDependencyProvider(service: Service(serverConfig: ServerConfig(apiBaseUrl: URL(string: "http://www.recipepuppy.com/")!)))
+        return makeDependencyProvider(service: Service(serverConfig: ServerConfig(apiBaseUrl: URL(string: "http://www.recipepuppy.com/")!)), store: RecipesStore())
     }()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -59,8 +59,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
     
-    private func makeDependencyProvider(service: ServiceType) -> DependencyProvider {
-        let repositoryProvider = RepositoryProvider(service: service)
+    private func makeDependencyProvider(service: ServiceType, store: RecipesStore) -> DependencyProvider {
+        let repositoryProvider = RepositoryProvider(service: service, store: store)
         return DependencyProvider(provider: repositoryProvider, service: service)
     }
     

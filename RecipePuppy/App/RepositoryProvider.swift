@@ -12,15 +12,17 @@ import RecipePuppyKit
 class RepositoryProvider {
 
     private let service: ServiceType
+    private let store: RecipesStore
     
 
     lazy var recipesRepository: RecipesRepository = {
-        return RecipesRepository(service: service)
+        return RecipesRepository(service: service, store: store)
     }()
 
 
-    init(service: ServiceType) {
+    init(service: ServiceType, store: RecipesStore) {
         self.service = service
+        self.store = store
     }
   
 }
