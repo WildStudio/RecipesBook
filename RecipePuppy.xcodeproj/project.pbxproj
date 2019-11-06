@@ -28,6 +28,7 @@
 		8848002F2372BDF40015F044 /* MockConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848002E2372BDF40015F044 /* MockConstant.swift */; };
 		884800312372C5BB0015F044 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800302372C5BB0015F044 /* TestError.swift */; };
 		884800332372CCE30015F044 /* RecipeCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800322372CCE30015F044 /* RecipeCellViewModelTests.swift */; };
+		884800352372CE760015F044 /* DetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800342372CE760015F044 /* DetailViewModelTests.swift */; };
 		8848FFEA236F2E290015F044 /* AlertControllerDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFE9236F2E290015F044 /* AlertControllerDisplayable.swift */; };
 		8848FFEC236F371E0015F044 /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFEB236F371E0015F044 /* Collection+Safe.swift */; };
 		8848FFEE236F3C950015F044 /* EmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFED236F3C950015F044 /* EmptyStateViewController.swift */; };
@@ -109,6 +110,7 @@
 		8848002E2372BDF40015F044 /* MockConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConstant.swift; sourceTree = "<group>"; };
 		884800302372C5BB0015F044 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		884800322372CCE30015F044 /* RecipeCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCellViewModelTests.swift; sourceTree = "<group>"; };
+		884800342372CE760015F044 /* DetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelTests.swift; sourceTree = "<group>"; };
 		8848FFE9236F2E290015F044 /* AlertControllerDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerDisplayable.swift; sourceTree = "<group>"; };
 		8848FFEB236F371E0015F044 /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		8848FFED236F3C950015F044 /* EmptyStateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateViewController.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			children = (
 				884800282371E47E0015F044 /* SearchViewModelTests.swift */,
 				884800322372CCE30015F044 /* RecipeCellViewModelTests.swift */,
+				884800342372CE760015F044 /* DetailViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				8848001A2371D8D20015F044 /* AlertConfigurationBuilder.swift in Sources */,
 				884800292371E47E0015F044 /* SearchViewModelTests.swift in Sources */,
 				8848002D2372BC780015F044 /* MockServiceError.swift in Sources */,
+				884800352372CE760015F044 /* DetailViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
