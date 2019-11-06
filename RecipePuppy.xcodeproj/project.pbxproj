@@ -11,8 +11,24 @@
 		88417636236E0CA20081EDC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88417635236E0CA20081EDC5 /* SceneDelegate.swift */; };
 		8841763D236E0CA30081EDC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8841763C236E0CA30081EDC5 /* Assets.xcassets */; };
 		88417640236E0CA30081EDC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8841763E236E0CA30081EDC5 /* LaunchScreen.storyboard */; };
-		8841764B236E0CA30081EDC5 /* RecipePuppyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8841764A236E0CA30081EDC5 /* RecipePuppyTests.swift */; };
 		8848000823701B450015F044 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8848000723701B450015F044 /* SDWebImage */; };
+		8848000D23704A3A0015F044 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848000C23704A3A0015F044 /* DetailViewController.swift */; };
+		8848001023704AB80015F044 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8848000F23704AB80015F044 /* DetailViewController.xib */; };
+		8848001323704DC60015F044 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848001223704DC60015F044 /* DetailViewModel.swift */; };
+		8848001623709C840015F044 /* WindowTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848001523709C840015F044 /* WindowTestCase.swift */; };
+		884800182371D8460015F044 /* XCTest+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800172371D8460015F044 /* XCTest+UIAlertController.swift */; };
+		8848001A2371D8D20015F044 /* AlertConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800192371D8D20015F044 /* AlertConfigurationBuilder.swift */; };
+		8848001C2371D9420015F044 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8848001B2371D9420015F044 /* SDWebImage */; };
+		8848001F2371D9BC0015F044 /* RootCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848001E2371D9BC0015F044 /* RootCoordinatorTests.swift */; };
+		884800242371DB700015F044 /* MockServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800232371DB700015F044 /* MockServiceProvider.swift */; };
+		884800262371DFDA0015F044 /* UIAlert+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800252371DFDA0015F044 /* UIAlert+Configuration.swift */; };
+		884800292371E47E0015F044 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800282371E47E0015F044 /* SearchViewModelTests.swift */; };
+		8848002B2372BBB80015F044 /* MockGetRecipesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848002A2372BBB80015F044 /* MockGetRecipesUseCase.swift */; };
+		8848002D2372BC780015F044 /* MockServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848002C2372BC780015F044 /* MockServiceError.swift */; };
+		8848002F2372BDF40015F044 /* MockConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848002E2372BDF40015F044 /* MockConstant.swift */; };
+		884800312372C5BB0015F044 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800302372C5BB0015F044 /* TestError.swift */; };
+		884800332372CCE30015F044 /* RecipeCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800322372CCE30015F044 /* RecipeCellViewModelTests.swift */; };
+		884800352372CE760015F044 /* DetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800342372CE760015F044 /* DetailViewModelTests.swift */; };
 		8848FFEA236F2E290015F044 /* AlertControllerDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFE9236F2E290015F044 /* AlertControllerDisplayable.swift */; };
 		8848FFEC236F371E0015F044 /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFEB236F371E0015F044 /* Collection+Safe.swift */; };
 		8848FFEE236F3C950015F044 /* EmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFED236F3C950015F044 /* EmptyStateViewController.swift */; };
@@ -78,8 +94,23 @@
 		8841763F236E0CA30081EDC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88417641236E0CA30081EDC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88417646236E0CA30081EDC5 /* RecipePuppyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipePuppyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8841764A236E0CA30081EDC5 /* RecipePuppyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePuppyTests.swift; sourceTree = "<group>"; };
 		8841764C236E0CA30081EDC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8848000C23704A3A0015F044 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8848000F23704AB80015F044 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		8848001223704DC60015F044 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		8848001523709C840015F044 /* WindowTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTestCase.swift; sourceTree = "<group>"; };
+		884800172371D8460015F044 /* XCTest+UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+UIAlertController.swift"; sourceTree = "<group>"; };
+		884800192371D8D20015F044 /* AlertConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertConfigurationBuilder.swift; sourceTree = "<group>"; };
+		8848001E2371D9BC0015F044 /* RootCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinatorTests.swift; sourceTree = "<group>"; };
+		884800232371DB700015F044 /* MockServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceProvider.swift; sourceTree = "<group>"; };
+		884800252371DFDA0015F044 /* UIAlert+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlert+Configuration.swift"; sourceTree = "<group>"; };
+		884800282371E47E0015F044 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
+		8848002A2372BBB80015F044 /* MockGetRecipesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetRecipesUseCase.swift; sourceTree = "<group>"; };
+		8848002C2372BC780015F044 /* MockServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceError.swift; sourceTree = "<group>"; };
+		8848002E2372BDF40015F044 /* MockConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConstant.swift; sourceTree = "<group>"; };
+		884800302372C5BB0015F044 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
+		884800322372CCE30015F044 /* RecipeCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCellViewModelTests.swift; sourceTree = "<group>"; };
+		884800342372CE760015F044 /* DetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelTests.swift; sourceTree = "<group>"; };
 		8848FFE9236F2E290015F044 /* AlertControllerDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerDisplayable.swift; sourceTree = "<group>"; };
 		8848FFEB236F371E0015F044 /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		8848FFED236F3C950015F044 /* EmptyStateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8848001C2371D9420015F044 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +190,7 @@
 				88FD8A6A236E0DE6003A7FE2 /* Coordinators */,
 				88FD8A70236E0DE6003A7FE2 /* Root */,
 				88FD8A6E236E0DE6003A7FE2 /* App */,
+				8848000A237049FC0015F044 /* Detail */,
 				88FD8A67236E0DE6003A7FE2 /* SearchRecipes */,
 				88FD8A5B236E0DE5003A7FE2 /* Repositories */,
 				88417633236E0CA20081EDC5 /* AppDelegate.swift */,
@@ -173,11 +206,89 @@
 		88417649236E0CA30081EDC5 /* RecipePuppyTests */ = {
 			isa = PBXGroup;
 			children = (
-				8841764A236E0CA30081EDC5 /* RecipePuppyTests.swift */,
+				884800272371E4650015F044 /* ViewModels */,
+				884800202371DA2A0015F044 /* Mocks */,
+				8848001D2371D97F0015F044 /* Coordinators */,
+				8848001423709C6B0015F044 /* TestHelpers */,
 				8841764C236E0CA30081EDC5 /* Info.plist */,
 				8848FFF5236F42750015F044 /* Collection+SafeTests.swift */,
 			);
 			path = RecipePuppyTests;
+			sourceTree = "<group>";
+		};
+		8848000A237049FC0015F044 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				8848001123704D6A0015F044 /* View Models */,
+				8848000E23704A520015F044 /* Views */,
+				8848000B23704A2A0015F044 /* Controllers */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		8848000B23704A2A0015F044 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8848000C23704A3A0015F044 /* DetailViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8848000E23704A520015F044 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8848000F23704AB80015F044 /* DetailViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8848001123704D6A0015F044 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				8848001223704DC60015F044 /* DetailViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		8848001423709C6B0015F044 /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				884800192371D8D20015F044 /* AlertConfigurationBuilder.swift */,
+				8848001523709C840015F044 /* WindowTestCase.swift */,
+				884800172371D8460015F044 /* XCTest+UIAlertController.swift */,
+				884800252371DFDA0015F044 /* UIAlert+Configuration.swift */,
+				8848002C2372BC780015F044 /* MockServiceError.swift */,
+				884800302372C5BB0015F044 /* TestError.swift */,
+			);
+			path = TestHelpers;
+			sourceTree = "<group>";
+		};
+		8848001D2371D97F0015F044 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				8848001E2371D9BC0015F044 /* RootCoordinatorTests.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		884800202371DA2A0015F044 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				884800232371DB700015F044 /* MockServiceProvider.swift */,
+				8848002A2372BBB80015F044 /* MockGetRecipesUseCase.swift */,
+				8848002E2372BDF40015F044 /* MockConstant.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		884800272371E4650015F044 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				884800282371E47E0015F044 /* SearchViewModelTests.swift */,
+				884800322372CCE30015F044 /* RecipeCellViewModelTests.swift */,
+				884800342372CE760015F044 /* DetailViewModelTests.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		8848FFE8236F2E100015F044 /* Extensions */ = {
@@ -340,6 +451,9 @@
 				88417648236E0CA30081EDC5 /* PBXTargetDependency */,
 			);
 			name = RecipePuppyTests;
+			packageProductDependencies = (
+				8848001B2371D9420015F044 /* SDWebImage */,
+			);
 			productName = RecipePuppyTests;
 			productReference = 88417646236E0CA30081EDC5 /* RecipePuppyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -391,6 +505,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8848FFF0236F3CC10015F044 /* EmptyStateViewController.xib in Resources */,
+				8848001023704AB80015F044 /* DetailViewController.xib in Resources */,
 				88417640236E0CA30081EDC5 /* LaunchScreen.storyboard in Resources */,
 				88FD8A80236E0E87003A7FE2 /* Main.storyboard in Resources */,
 				8841763D236E0CA30081EDC5 /* Assets.xcassets in Resources */,
@@ -414,12 +529,14 @@
 			files = (
 				8848FFF9236F44890015F044 /* AlertConfiguration.swift in Sources */,
 				88FD8A79236E0E33003A7FE2 /* SearchViewModel.swift in Sources */,
+				8848000D23704A3A0015F044 /* DetailViewController.swift in Sources */,
 				8848FFEC236F371E0015F044 /* Collection+Safe.swift in Sources */,
 				8848FFFB236F469C0015F044 /* AlertConfiguration+Extension.swift in Sources */,
 				88FD8A72236E0E00003A7FE2 /* RouteMediating.swift in Sources */,
 				8848FFEA236F2E290015F044 /* AlertControllerDisplayable.swift in Sources */,
 				88FD8A71236E0DFD003A7FE2 /* Coordinator.swift in Sources */,
 				88417634236E0CA20081EDC5 /* AppDelegate.swift in Sources */,
+				8848001323704DC60015F044 /* DetailViewModel.swift in Sources */,
 				88FD8A73236E0E05003A7FE2 /* RootCoordinator.swift in Sources */,
 				8848FFF4236F3ECB0015F044 /* UIView+AutoLayoutHelpers.swift in Sources */,
 				8848FFFF236F77BE0015F044 /* UILabel+Rotation.swift in Sources */,
@@ -443,8 +560,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				884800262371DFDA0015F044 /* UIAlert+Configuration.swift in Sources */,
+				8848002F2372BDF40015F044 /* MockConstant.swift in Sources */,
+				884800332372CCE30015F044 /* RecipeCellViewModelTests.swift in Sources */,
+				8848001623709C840015F044 /* WindowTestCase.swift in Sources */,
+				884800242371DB700015F044 /* MockServiceProvider.swift in Sources */,
 				8848FFF6236F42750015F044 /* Collection+SafeTests.swift in Sources */,
-				8841764B236E0CA30081EDC5 /* RecipePuppyTests.swift in Sources */,
+				884800182371D8460015F044 /* XCTest+UIAlertController.swift in Sources */,
+				884800312372C5BB0015F044 /* TestError.swift in Sources */,
+				8848002B2372BBB80015F044 /* MockGetRecipesUseCase.swift in Sources */,
+				8848001F2371D9BC0015F044 /* RootCoordinatorTests.swift in Sources */,
+				8848001A2371D8D20015F044 /* AlertConfigurationBuilder.swift in Sources */,
+				884800292371E47E0015F044 /* SearchViewModelTests.swift in Sources */,
+				8848002D2372BC780015F044 /* MockServiceError.swift in Sources */,
+				884800352372CE760015F044 /* DetailViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,6 +838,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		8848000723701B450015F044 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8848000623701B450015F044 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		8848001B2371D9420015F044 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8848000623701B450015F044 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;

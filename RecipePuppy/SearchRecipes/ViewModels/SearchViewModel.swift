@@ -25,7 +25,7 @@ class SearchViewModel {
     private var timer: Timer?
     private var currentPage = 1
     private var searchQuery = String.init()
-    private let getRecipes: GetRecipesWithIngredients
+    private let getRecipes: GetRecipesUsesCaseType
     private let routeMediator: RootCoordinator.RouteMediator
     
     private(set) var recipes = [Recipe]()
@@ -35,7 +35,7 @@ class SearchViewModel {
     let title = Constant.title
     
     init(
-        getRecipes: GetRecipesWithIngredients,
+        getRecipes: GetRecipesUsesCaseType,
         routeMediator: RootCoordinator.RouteMediator
     ) {
         self.getRecipes = getRecipes
@@ -50,6 +50,26 @@ class SearchViewModel {
         recipes.removeAll()
         fetchRecipes()
     }
+    
+    
+    // TODO
+    func fetchRecipes() {
+        if searchQuery.count > Constant.minimumCharacters {
+            getRecipes.execute(searchQuery, page: currentPage) { [weak self] result in
+                self?.handleResult(result)
+            }
+        }
+    }
+    
+    
+    // MARK: - User Actions
+    
+    func didSelectCell(at indexPath: IndexPath) {
+        guard let recipe = recipes[safe: indexPath.row]
+            else { return }
+        routeMediator.route(to: .detail(recipe))
+    }
+    
     
     /// Returns a `RecipeCellViewModel`
     ///- Parameters:
@@ -78,19 +98,4 @@ class SearchViewModel {
         }
     }
     
-    
-    func fetchRecipes() {
-        if searchQuery.count > Constant.minimumCharacters {
-            timer?.invalidate()
-            timer = Timer.scheduledTimer(
-                withTimeInterval: Constant.updateIntervalInSeconds,
-                repeats: false
-            ) { [weak self] _ in
-                self?.getRecipes.execute(self?.searchQuery ?? .init(), page: self?.currentPage) { [weak self] result in
-                    self?.handleResult(result)
-                }
-                self?.timer?.invalidate()
-            }
-        }
-    }
 }

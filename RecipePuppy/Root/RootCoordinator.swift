@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Models
 import RecipePuppyKit
 
 final class RootCoordinator: Coordinator {
@@ -23,7 +24,7 @@ final class RootCoordinator: Coordinator {
     
     // MARK: - Life cycle
     
-    init(dependencyProvider: DependencyProvider, root: UINavigationController) {
+    init(dependencyProvider: DependenciesProviding, root: UINavigationController) {
         self.root = root
         guard let searchViewController = root.viewControllers.first as? SearchViewController else {
                 fatalError("The initial view controller should be set to a SearchViewController embedded into a UINavigationController!")
@@ -51,22 +52,26 @@ final class RootCoordinator: Coordinator {
     
     private func handleRouteRequest(to destination: RouteMediator.Destination) {
         switch destination {
-        case .detail: presentDetail()
+        case .detail(let recipe):
+            present(recipe)
         case .alert(let configuration):
             showAlert(with: configuration)
         }
     }
     
     
-    private func presentDetail() {
+    private func present(_ recipe: Recipe) {
+        let detailController = DetailViewController()
         
+        guard let url = recipe.hrefURL else { return }
+        detailController.configure(with: DetailViewModel(url))
+        searchViewController.present(detailController, animated: true)
     }
     
     
     private func showAlert(with configuration: AlertConfiguration) {
         searchViewController.displayAlert(with: configuration)
     }
-    
     
 }
 
@@ -78,7 +83,7 @@ extension RootCoordinator {
     final class RouteMediator: RouteMediating {
         
         enum Destination: Equatable {
-            case detail
+            case detail(Recipe)
             case alert(AlertConfiguration)
         }
         

@@ -61,7 +61,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func makeDependencyProvider(service: ServiceType) -> DependencyProvider {
         let repositoryProvider = RepositoryProvider(service: service)
-        return DependencyProvider(provider: repositoryProvider, recipePuppyService: service)
+        return DependencyProvider(provider: repositoryProvider, service: service)
     }
     
 }
