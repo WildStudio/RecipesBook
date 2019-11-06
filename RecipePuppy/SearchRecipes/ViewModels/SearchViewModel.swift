@@ -13,8 +13,7 @@ protocol SearchViewModelDelegate: AnyObject {
     func onFetchCompleted()
 }
 
-
-class SearchViewModel {
+final class SearchViewModel {
     
     private enum Constant {
         static let title = "Recipes"
@@ -55,7 +54,7 @@ class SearchViewModel {
     }
     
     
-    // TODO
+    // TODO: - avoid spamming the server
     func fetchRecipes() {
         if searchQuery.count > Constant.minimumCharacters {
             getRecipes.execute(searchQuery, page: currentPage) { [weak self] result in
@@ -71,6 +70,11 @@ class SearchViewModel {
         guard let recipe = recipes[safe: indexPath.row]
             else { return }
         routeMediator.route(to: .detail(recipe))
+    }
+    
+    
+    func didSelectFavorites() {
+        routeMediator.route(to: .favorites)
     }
     
     
@@ -91,7 +95,7 @@ class SearchViewModel {
         switch result {
         case .success(let recipes):
             self.recipes.append(contentsOf: recipes)
-            self.currentPage += 1
+            currentPage += 1
             delegate?.onFetchCompleted()
         case .failure(let error):
             let configuration = AlertConfiguration(

@@ -38,13 +38,18 @@ struct RecipesRepository {
     }
     
     
+    func getLocal() -> [Recipe] {
+        store.values
+    }
+    
+    
     func favorite(_ recipe: Recipe) {
         isFavorite(recipe) ? remove(recipe) : add(recipe)
     }
     
     
     func isFavorite(_ recipe: Recipe) -> Bool {
-        return store.contains(recipe)
+        store.contains(recipe)
     }
     
     

@@ -18,7 +18,6 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
         static let prefetchingCell = 5
     }
     
-    private var timer: Timer?
     private var search: UISearchController?
     private var viewModel: SearchViewModel?
     private var searchBarInitialLeftView: UIView?
@@ -50,6 +49,16 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
         setupSearchController()
         setupCollectionView()
         addEmptyState()
+        addFavoritesButton()
+       
+    }
+    
+    private func addFavoritesButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .bookmarks,
+            target: self,
+            action: #selector(onFavorites)
+        )
     }
     
     
@@ -90,6 +99,12 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
         search?.searchBar.searchTextField.leftView = searchBarInitialLeftView
         collectionView.reloadData()
     }
+    
+    
+    @objc func onFavorites() {
+        viewModel?.didSelectFavorites()
+    }
+
     
 }
 
@@ -165,7 +180,7 @@ extension SearchViewController: UICollectionViewDataSourcePrefetching {
     
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         if indexPaths.contains(where: isLoadingCell) {
-             viewModel?.fetchRecipes()
+            viewModel?.fetchRecipes()
         }
     }
     

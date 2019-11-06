@@ -19,6 +19,7 @@ final class RootCoordinator: Coordinator {
     let root: UINavigationController
     let searchViewController: SearchViewController
     let mediator = RouteMediator()
+    let dependencyProvider: DependenciesProviding
     private var child: ChildCoordinator?
     
     
@@ -27,6 +28,7 @@ final class RootCoordinator: Coordinator {
     // TODO: - Handle the error
     init(dependencyProvider: DependenciesProviding, root: UINavigationController) {
         self.root = root
+        self.dependencyProvider = dependencyProvider
         guard let searchViewController = root.viewControllers.first as? SearchViewController else {
             fatalError("The initial view controller should be set to a SearchViewController embedded into a UINavigationController!")
         }
@@ -58,6 +60,8 @@ final class RootCoordinator: Coordinator {
         switch destination {
         case .detail(let recipe):
             present(recipe)
+        case .favorites:
+            presentFavorites()
         case .alert(let configuration):
             showAlert(with: configuration)
         }
@@ -70,6 +74,18 @@ final class RootCoordinator: Coordinator {
         guard let url = recipe.hrefURL else { return }
         detailController.configure(with: DetailViewModel(url))
         searchViewController.present(detailController, animated: true)
+    }
+    
+    private func presentFavorites() {
+        let recipesRepository = dependencyProvider.provider.recipesRepository
+        let favoritesController = FavoritesViewController(
+            with: FavoritesViewModel(
+                favoritesRecipes: FavoritesRecipesUseCase(repository: recipesRepository
+                )
+            )
+        )
+        
+        searchViewController.present(favoritesController, animated: true)
     }
     
     
@@ -88,6 +104,7 @@ extension RootCoordinator {
         
         enum Destination: Equatable {
             case detail(Recipe)
+            case favorites
             case alert(AlertConfiguration)
         }
         

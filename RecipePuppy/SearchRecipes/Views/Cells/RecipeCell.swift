@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-final class RecipeCell: UICollectionViewCell {
+final class RecipeCell: UICollectionViewCell, NibLoadable {
     
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var titleLabel: UILabel!
@@ -37,12 +37,7 @@ final class RecipeCell: UICollectionViewCell {
     @IBAction private func didTapFavoriteButton(_ sender: UIButton) {
         guard let viewModel = viewModel else { return }
         viewModel.favorite()
-        
-        if sender.isSelected == true {
-            sender.isSelected = false
-        } else {
-            sender.isSelected = true
-        }
+        sender.isSelected = !sender.isSelected
     }
     
 }
