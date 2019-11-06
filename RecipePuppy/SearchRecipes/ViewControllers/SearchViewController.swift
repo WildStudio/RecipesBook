@@ -11,9 +11,6 @@ import UIKit
 final class SearchViewController: UIViewController, AlertControllerDisplayable {
     
     private enum Constant {
-        static let cellReuseIdentifier = "cell"
-        static let alertTitle = "Something went wrong"
-        static let alertOK = "OK"
         static let searchBarPlaceholder = "Start typing to search recipes..."
         static let prefetchingCell = 5
     }
@@ -29,9 +26,8 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
         return spinner
     }()
     
-    lazy private var emptyStateController = EmptyStateViewController()
+    lazy private var emptyStateController: EmptyStateViewController = .searchEmptyState()
     
-    @IBOutlet private var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet private var collectionView: UICollectionView!
     
     
@@ -39,19 +35,19 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
     
     func configure(with viewModel: SearchViewModel) {
         self.viewModel = viewModel
-        self.viewModel?.delegate = self
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel?.title
+        viewModel?.delegate = self
         setupSearchController()
         setupCollectionView()
         addEmptyState()
         addFavoritesButton()
-       
     }
+    
     
     private func addFavoritesButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
@@ -65,7 +61,6 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
     private func addEmptyState() {
         embed(emptyStateController)
         embedView(emptyStateController.view, in: view)
-        emptyStateController.setupView(with: "Welcome to the Recipe Puppy App", subtitle: "What are you waiting for? Start typing to search recipes with ingredients.")
     }
     
     
@@ -104,7 +99,6 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
     @objc func onFavorites() {
         viewModel?.didSelectFavorites()
     }
-
     
 }
 
@@ -133,14 +127,14 @@ extension SearchViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: Constant.cellReuseIdentifier,
+            withReuseIdentifier: RecipeCell.reuseIdentifier,
             for: indexPath
-            ) as? RecipeCell,
-            let cellViewModel = viewModel?.recipeCellViewModel(at: indexPath.row)
-            else { assertionFailure("Wrong cell type")
+            ) as? RecipeCell
+            else {
                 return UICollectionViewCell()
         }
         
+        let cellViewModel = viewModel?.recipeCellViewModel(at: indexPath.row)
         cell.configure(with: cellViewModel)
         return cell
     }
@@ -172,8 +166,7 @@ extension SearchViewController: SearchViewModelDelegate {
 extension SearchViewController: UICollectionViewDataSourcePrefetching {
     
     func isLoadingCell(for indexPath: IndexPath) -> Bool {
-        guard let viewModel = self.viewModel
-            else { return false }
+        guard let viewModel = viewModel else { return false }
         return indexPath.row >= viewModel.recipes.count - Constant.prefetchingCell
     }
     

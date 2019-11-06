@@ -12,7 +12,7 @@ import Models
 
 class CollectionViewDataSource<Model>: NSObject, UICollectionViewDataSource {
     
-    typealias CellConfigurator = (Model, UICollectionViewCell) -> Void
+    typealias CellConfigurator = (UICollectionViewCell, IndexPath) -> Void
     
     var models: [Model]
     
@@ -37,12 +37,11 @@ class CollectionViewDataSource<Model>: NSObject, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let model = models[safe: indexPath.row] else { return UICollectionViewCell() }
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: cellReuseIdentifier,
             for: indexPath)
         
-        cellConfigurator(model, cell)
+        cellConfigurator(cell, indexPath)
         return cell
     }
     

@@ -17,18 +17,23 @@ final class RecipeCell: UICollectionViewCell, NibLoadable {
     @IBOutlet private var tagLabel: EdgeInsetLabel!
     @IBOutlet private var favoriteButton: UIButton!
     
+    
+    static var reuseIdentifier: String {
+        return String(describing: self)
+    }
+    
     private var viewModel: RecipeCellViewModel?
     
-    func configure(with viewModel: RecipeCellViewModel) {
+    func configure(with viewModel: RecipeCellViewModel?) {
         self.viewModel = viewModel
         
-        titleLabel.text = viewModel.title
-        descriptionLabel.text = viewModel.ingredients
-        tagLabel.text = viewModel.tag
-        tagLabel.isHidden = viewModel.shouldHideTagLabel
-        favoriteButton.isSelected = viewModel.isFavourite
+        titleLabel.text = viewModel?.title
+        descriptionLabel.text = viewModel?.ingredients
+        tagLabel.text = viewModel?.tag
+        tagLabel.isHidden = viewModel?.shouldHideTagLabel ?? true
+        favoriteButton.isSelected = viewModel?.isFavourite ?? false
         
-        if let imageURL = viewModel.imageURL {
+        if let imageURL = viewModel?.imageURL {
             imageView?.sd_setImage(with: imageURL)
         }
     }

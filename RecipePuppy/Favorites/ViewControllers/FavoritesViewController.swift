@@ -12,7 +12,7 @@ import Models
 final class FavoritesViewController: UIViewController {
     
     private enum Constant {
-        static let cellReuseIdentifier = "cell"
+        static let cellHeight: CGFloat = 300
     }
     
     private var dataSource: CollectionViewDataSource<Recipe>?
@@ -21,8 +21,6 @@ final class FavoritesViewController: UIViewController {
         frame: .zero,
         collectionViewLayout: UICollectionViewFlowLayout()
     )
-    
-    lazy private var emptyStateController = EmptyStateViewController()
     
     
     // MARK: - Life cycle
@@ -47,10 +45,11 @@ final class FavoritesViewController: UIViewController {
     
     
     private func setupCollectionView() {
-        collectionView.register(RecipeCell.nib(), forCellWithReuseIdentifier: Constant.cellReuseIdentifier)
+        collectionView.registerRecipeCell(RecipeCell.reuseIdentifier)
         collectionView.backgroundColor = .white
         view.addSubview(collectionView)
         collectionView.addConstraintsToFillSuperview()
+        collectionView.delegate = self
     }
     
 }
@@ -60,10 +59,10 @@ extension FavoritesViewController: FavoritesViewModelDelegate {
     func onFetchCompleted() {
         let dataSource = CollectionViewDataSource<Recipe>(
             models: viewModel.recipes,
-            cellReuseIdentifier: Constant.cellReuseIdentifier
-        ) { [weak self] recipes, cell in
+            cellReuseIdentifier: RecipeCell.reuseIdentifier
+        ) { [weak self] cell, indexPath in
             guard let recipeCell = cell as? RecipeCell else { return }
-            self?.configure(cell: recipeCell)
+            self?.configure(recipeCell, indexPath)
         }
         
         self.dataSource = dataSource
@@ -71,14 +70,23 @@ extension FavoritesViewController: FavoritesViewModelDelegate {
     }
     
     
-    func configure(cell: RecipeCell) {
-        guard let indexPath = collectionView.indexPath(for: cell)?.row,
-        let viewModel = viewModel.recipeCellViewModel(at: indexPath)
-        else { return }
+    func configure(_ cell: RecipeCell, _ indexPath: IndexPath) {
+        guard let cellViewModel = viewModel.recipeCellViewModel(at: indexPath.row)
+            else { return }
         
-        cell.configure(with: viewModel)
+        cell.configure(with: cellViewModel)
     }
     
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 
+extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: collectionView.bounds.width, height: Constant.cellHeight)
+    }
+    
+}

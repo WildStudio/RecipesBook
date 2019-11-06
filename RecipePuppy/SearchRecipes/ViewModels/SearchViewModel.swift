@@ -54,7 +54,8 @@ final class SearchViewModel {
     }
     
     
-    // TODO: - avoid spamming the server
+    // TODO: - Avoid spamming the server
+    
     func fetchRecipes() {
         if searchQuery.count > Constant.minimumCharacters {
             getRecipes.execute(searchQuery, page: currentPage) { [weak self] result in
