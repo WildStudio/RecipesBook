@@ -16,9 +16,7 @@ class SearchViewModelTests: XCTestCase {
     var mediator: RootCoordinator.RouteMediator!
     var invokedRecipeRoute: Recipe?
     var didRouteToAlert = false
-    var mockUseCase: GetRecipesWithIngredients!
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-
+    var mockUseCase: MockGetRecipesUseCase!
     
     
     override func setUp() {
@@ -31,12 +29,58 @@ class SearchViewModelTests: XCTestCase {
             }
         }
         
-        mockUseCase = GetRecipesWithIngredients(
-            repository: RepositoryProvider(
-                service: MockServiceProvider.service()
-            ).recipesRepository
-        )
+        mockUseCase = MockGetRecipesUseCase()
         
         viewModel = SearchViewModel(getRecipes: mockUseCase, routeMediator: mediator)
     }
+    
+    
+    func testInitiate_WhenHasRecipes_PopulatesCollectionView() {
+        // Given
+        mockUseCase.result = .success([MockConstant.firstRecipe])
+        
+        // When
+        viewModel.initiate(searchQuery: "stuff")
+        
+        // Then
+        XCTAssertEqual(viewModel.recipes.count, 1)
+    }
+    
+    
+    func testInitiate_WhenRecipeNotFound_DoesNotPopulateCollectionView() {
+        // Given
+        mockUseCase.result = .failure(TestError())
+        
+        // When
+        viewModel.initiate(searchQuery: "stuff")
+        
+        // Then
+        XCTAssertEqual(viewModel.recipes.count,  0)
+    }
+    
+    
+    func testInitiateError_RoutesToAlert() {
+        // Given
+        mockUseCase.result = .failure(TestError())
+        
+        // When
+        viewModel.initiate(searchQuery: "stuff")
+        
+        // Then
+        XCTAssertTrue(didRouteToAlert)
+    }
+    
+    
+    func testDidSelectCell_WhenRecipeCell_RoutesToRecipeDestination() {
+        // Given
+        mockUseCase.result = .success([MockConstant.firstRecipe, MockConstant.secondRecipe])
+        viewModel.initiate(searchQuery: "mock recipes")
+        
+        // When
+        viewModel.didSelectCell(at: IndexPath(item: 0, section: 0))
+        
+        // Then
+        XCTAssertEqual(invokedRecipeRoute, MockConstant.firstRecipe)
+    }
+    
 }

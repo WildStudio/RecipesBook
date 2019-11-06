@@ -24,6 +24,10 @@
 		884800242371DB700015F044 /* MockServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800232371DB700015F044 /* MockServiceProvider.swift */; };
 		884800262371DFDA0015F044 /* UIAlert+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800252371DFDA0015F044 /* UIAlert+Configuration.swift */; };
 		884800292371E47E0015F044 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800282371E47E0015F044 /* SearchViewModelTests.swift */; };
+		8848002B2372BBB80015F044 /* MockGetRecipesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848002A2372BBB80015F044 /* MockGetRecipesUseCase.swift */; };
+		8848002D2372BC780015F044 /* MockServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848002C2372BC780015F044 /* MockServiceError.swift */; };
+		8848002F2372BDF40015F044 /* MockConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848002E2372BDF40015F044 /* MockConstant.swift */; };
+		884800312372C5BB0015F044 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800302372C5BB0015F044 /* TestError.swift */; };
 		8848FFEA236F2E290015F044 /* AlertControllerDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFE9236F2E290015F044 /* AlertControllerDisplayable.swift */; };
 		8848FFEC236F371E0015F044 /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFEB236F371E0015F044 /* Collection+Safe.swift */; };
 		8848FFEE236F3C950015F044 /* EmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFED236F3C950015F044 /* EmptyStateViewController.swift */; };
@@ -101,6 +105,10 @@
 		884800232371DB700015F044 /* MockServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceProvider.swift; sourceTree = "<group>"; };
 		884800252371DFDA0015F044 /* UIAlert+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlert+Configuration.swift"; sourceTree = "<group>"; };
 		884800282371E47E0015F044 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
+		8848002A2372BBB80015F044 /* MockGetRecipesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetRecipesUseCase.swift; sourceTree = "<group>"; };
+		8848002C2372BC780015F044 /* MockServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceError.swift; sourceTree = "<group>"; };
+		8848002E2372BDF40015F044 /* MockConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConstant.swift; sourceTree = "<group>"; };
+		884800302372C5BB0015F044 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		8848FFE9236F2E290015F044 /* AlertControllerDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerDisplayable.swift; sourceTree = "<group>"; };
 		8848FFEB236F371E0015F044 /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		8848FFED236F3C950015F044 /* EmptyStateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateViewController.swift; sourceTree = "<group>"; };
@@ -248,6 +256,8 @@
 				8848001523709C840015F044 /* WindowTestCase.swift */,
 				884800172371D8460015F044 /* XCTest+UIAlertController.swift */,
 				884800252371DFDA0015F044 /* UIAlert+Configuration.swift */,
+				8848002C2372BC780015F044 /* MockServiceError.swift */,
+				884800302372C5BB0015F044 /* TestError.swift */,
 			);
 			path = TestHelpers;
 			sourceTree = "<group>";
@@ -264,6 +274,8 @@
 			isa = PBXGroup;
 			children = (
 				884800232371DB700015F044 /* MockServiceProvider.swift */,
+				8848002A2372BBB80015F044 /* MockGetRecipesUseCase.swift */,
+				8848002E2372BDF40015F044 /* MockConstant.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -546,14 +558,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				884800262371DFDA0015F044 /* UIAlert+Configuration.swift in Sources */,
+				8848002F2372BDF40015F044 /* MockConstant.swift in Sources */,
 				8848001623709C840015F044 /* WindowTestCase.swift in Sources */,
 				884800242371DB700015F044 /* MockServiceProvider.swift in Sources */,
 				8848FFF6236F42750015F044 /* Collection+SafeTests.swift in Sources */,
 				884800182371D8460015F044 /* XCTest+UIAlertController.swift in Sources */,
 				8841764B236E0CA30081EDC5 /* RecipePuppyTests.swift in Sources */,
+				884800312372C5BB0015F044 /* TestError.swift in Sources */,
+				8848002B2372BBB80015F044 /* MockGetRecipesUseCase.swift in Sources */,
 				8848001F2371D9BC0015F044 /* RootCoordinatorTests.swift in Sources */,
 				8848001A2371D8D20015F044 /* AlertConfigurationBuilder.swift in Sources */,
 				884800292371E47E0015F044 /* SearchViewModelTests.swift in Sources */,
+				8848002D2372BC780015F044 /* MockServiceError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
