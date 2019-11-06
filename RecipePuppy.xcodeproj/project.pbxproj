@@ -27,6 +27,7 @@
 		8848002D2372BC780015F044 /* MockServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848002C2372BC780015F044 /* MockServiceError.swift */; };
 		8848002F2372BDF40015F044 /* MockConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848002E2372BDF40015F044 /* MockConstant.swift */; };
 		884800312372C5BB0015F044 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800302372C5BB0015F044 /* TestError.swift */; };
+		884800332372CCE30015F044 /* RecipeCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884800322372CCE30015F044 /* RecipeCellViewModelTests.swift */; };
 		8848FFEA236F2E290015F044 /* AlertControllerDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFE9236F2E290015F044 /* AlertControllerDisplayable.swift */; };
 		8848FFEC236F371E0015F044 /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFEB236F371E0015F044 /* Collection+Safe.swift */; };
 		8848FFEE236F3C950015F044 /* EmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8848FFED236F3C950015F044 /* EmptyStateViewController.swift */; };
@@ -107,6 +108,7 @@
 		8848002C2372BC780015F044 /* MockServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceError.swift; sourceTree = "<group>"; };
 		8848002E2372BDF40015F044 /* MockConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConstant.swift; sourceTree = "<group>"; };
 		884800302372C5BB0015F044 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
+		884800322372CCE30015F044 /* RecipeCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCellViewModelTests.swift; sourceTree = "<group>"; };
 		8848FFE9236F2E290015F044 /* AlertControllerDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerDisplayable.swift; sourceTree = "<group>"; };
 		8848FFEB236F371E0015F044 /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		8848FFED236F3C950015F044 /* EmptyStateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateViewController.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				884800282371E47E0015F044 /* SearchViewModelTests.swift */,
+				884800322372CCE30015F044 /* RecipeCellViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 			files = (
 				884800262371DFDA0015F044 /* UIAlert+Configuration.swift in Sources */,
 				8848002F2372BDF40015F044 /* MockConstant.swift in Sources */,
+				884800332372CCE30015F044 /* RecipeCellViewModelTests.swift in Sources */,
 				8848001623709C840015F044 /* WindowTestCase.swift in Sources */,
 				884800242371DB700015F044 /* MockServiceProvider.swift in Sources */,
 				8848FFF6236F42750015F044 /* Collection+SafeTests.swift in Sources */,
