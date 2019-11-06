@@ -13,6 +13,7 @@ import RecipePuppyKit
 struct RecipesRepository {
     
     private let service: ServiceType
+    private let store: RecipesStore = .init()
     
     
     init(service: ServiceType) {
@@ -33,6 +34,26 @@ struct RecipesRepository {
                 completion(.failure(error))
             }
         }
+    }
+    
+    
+    func favorite(_ recipe: Recipe) {
+        isFavorite(recipe) ? remove(recipe) : add(recipe)
+    }
+    
+    
+    func isFavorite(_ recipe: Recipe) -> Bool {
+        return store.contains(recipe)
+    }
+    
+    
+    private func add(_ recipe: Recipe) {
+        store.add(recipe)
+    }
+    
+    
+    private func remove(_ recipe: Recipe) {
+        store.remove(recipe)
     }
         
 }

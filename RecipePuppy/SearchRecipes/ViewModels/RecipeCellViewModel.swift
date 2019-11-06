@@ -35,11 +35,22 @@ final class RecipeCellViewModel {
         recipe.thumbnailURL
     }
     
+    var isFavourite: Bool {
+        favoritesRecipes.isfavorite(recipe)
+    }
+    
     private let recipe: Recipe
+    private let favoritesRecipes: FavoritesRecipesUseCaseType
     
     
-    init(_ recipe: Recipe) {
+    init(_ recipe: Recipe, _ favoritesRecipes: FavoritesRecipesUseCaseType) {
         self.recipe = recipe
+        self.favoritesRecipes = favoritesRecipes
+    }
+    
+    
+    func favorite() {
+        favoritesRecipes.favorite(recipe)
     }
     
 }

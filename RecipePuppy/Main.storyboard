@@ -78,19 +78,31 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHy-Y1-8hX">
+                                                    <rect key="frame" x="339.5" y="169" width="19.5" height="22"/>
+                                                    <color key="tintColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" image="heart" catalog="system"/>
+                                                    <state key="selected" image="heart.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="didTapFavoriteButton:" destination="m9m-H0-5x8" eventType="touchUpInside" id="gJZ-l0-qOv"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstItem="EmL-kj-xte" firstAttribute="trailing" secondItem="jHy-Y1-8hX" secondAttribute="trailing" id="2Xb-Fe-8aW"/>
                                                 <constraint firstItem="EmL-kj-xte" firstAttribute="top" secondItem="uDc-4u-FCR" secondAttribute="bottom" constant="8" id="3Zp-FR-Nr6"/>
-                                                <constraint firstAttribute="trailing" secondItem="EmL-kj-xte" secondAttribute="trailing" constant="16" id="BmE-gc-rax"/>
+                                                <constraint firstItem="jHy-Y1-8hX" firstAttribute="centerY" secondItem="EmL-kj-xte" secondAttribute="centerY" id="5eS-Rv-8Bb"/>
                                                 <constraint firstItem="EmL-kj-xte" firstAttribute="leading" secondItem="eRd-CT-5eP" secondAttribute="leading" constant="16" id="Dit-Bq-Jl2"/>
                                                 <constraint firstItem="1dV-hr-9hY" firstAttribute="top" secondItem="eRd-CT-5eP" secondAttribute="top" constant="10" id="GUl-3m-DtW"/>
                                                 <constraint firstAttribute="bottom" secondItem="EmL-kj-xte" secondAttribute="bottom" constant="8" id="nKw-Ca-43F"/>
                                                 <constraint firstAttribute="trailing" secondItem="1dV-hr-9hY" secondAttribute="trailing" constant="-30" id="ncT-d4-9c2"/>
+                                                <constraint firstAttribute="trailing" secondItem="jHy-Y1-8hX" secondAttribute="trailing" constant="16" id="wPr-jA-v4h"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="wer-Vc-oo8" id="grQ-wG-d80"/>
+                                            <outlet property="favoriteButton" destination="jHy-Y1-8hX" id="yS3-Cb-Eiq"/>
                                             <outlet property="imageView" destination="uDc-4u-FCR" id="wXo-aZ-1oZ"/>
                                             <outlet property="tagLabel" destination="1dV-hr-9hY" id="7QD-yC-FOV"/>
                                             <outlet property="titleLabel" destination="x0M-vx-ZHt" id="y8S-vD-9WR"/>
@@ -136,4 +148,8 @@
             <point key="canvasLocation" x="324.63768115942031" y="24.776785714285712"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="heart" catalog="system" width="64" height="58"/>
+        <image name="heart.fill" catalog="system" width="64" height="58"/>
+    </resources>
 </document>

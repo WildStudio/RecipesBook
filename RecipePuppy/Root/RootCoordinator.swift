@@ -24,15 +24,19 @@ final class RootCoordinator: Coordinator {
     
     // MARK: - Life cycle
     
+    // TODO: - Handle the error
     init(dependencyProvider: DependenciesProviding, root: UINavigationController) {
         self.root = root
         guard let searchViewController = root.viewControllers.first as? SearchViewController else {
-                fatalError("The initial view controller should be set to a SearchViewController embedded into a UINavigationController!")
+            fatalError("The initial view controller should be set to a SearchViewController embedded into a UINavigationController!")
         }
-       searchViewController.configure(with: SearchViewModel(
-                getRecipes: GetRecipesWithIngredients(
-                    repository: dependencyProvider.provider.recipesRepository
-                ),
+        
+        let recipesRepository = dependencyProvider.provider.recipesRepository
+        
+        searchViewController.configure(
+            with: SearchViewModel(
+                getRecipes: GetRecipesWithIngredients(repository: recipesRepository),
+                favoritesRecipes: FavoritesRecipesUseCase(repository: recipesRepository),
                 routeMediator: mediator
             )
         )
