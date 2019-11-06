@@ -31,7 +31,14 @@ class SearchViewModelTests: XCTestCase {
         
         mockUseCase = MockGetRecipesUseCase()
         
-        viewModel = SearchViewModel(getRecipes: mockUseCase, routeMediator: mediator)
+        viewModel = SearchViewModel(getRecipes: mockUseCase,
+                                    favoritesRecipes: FavoritesRecipesUseCase(
+                                        repository: RecipesRepository(
+                                            service: MockServiceProvider.service(),
+                                            store: RecipesStore()
+                                        )
+            ),
+                                    routeMediator: mediator)
     }
     
     

@@ -13,7 +13,7 @@ protocol FavoriteListener: class {
     func didUpdateFavorites()
 }
 
-final class RecipesStore: Store {
+final class RecipesStore: StoreServiceType {
     
     typealias Model = Recipe
     

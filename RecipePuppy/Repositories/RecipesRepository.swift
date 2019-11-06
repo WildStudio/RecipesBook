@@ -13,11 +13,12 @@ import RecipePuppyKit
 struct RecipesRepository {
     
     private let service: ServiceType
-    private let store: RecipesStore = .init()
+    private let store: RecipesStore
     
     
-    init(service: ServiceType) {
+    init(service: ServiceType, store: RecipesStore) {
         self.service = service
+        self.store = store
     }
     
     
@@ -47,6 +48,11 @@ struct RecipesRepository {
     }
     
     
+    func clear() {
+        store.clear()
+    }
+    
+    
     private func add(_ recipe: Recipe) {
         store.add(recipe)
     }
@@ -55,5 +61,5 @@ struct RecipesRepository {
     private func remove(_ recipe: Recipe) {
         store.remove(recipe)
     }
-        
+    
 }

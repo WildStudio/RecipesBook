@@ -11,7 +11,7 @@ import RecipePuppyKit
 
 protocol RecipesRepositoryProviding {
 
-    func make(with service: ServiceType) -> RecipesRepository
+    func make(with service: ServiceType, store: RecipesStore) -> RecipesRepository
 }
 
 
@@ -19,8 +19,8 @@ protocol RecipesRepositoryProviding {
 
 extension RecipesRepositoryProviding {
 
-    func make(with service: ServiceType) -> RecipesRepository {
-        return RecipesRepository(service: service)
+    func make(with service: ServiceType, store: RecipesStore) -> RecipesRepository {
+        return RecipesRepository(service: service, store: store)
     }
 
 }

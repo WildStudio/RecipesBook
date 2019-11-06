@@ -27,10 +27,16 @@ struct FavoritesRecipesUseCase: FavoritesRecipesUseCaseType {
     func isfavorite(_ recipe: Recipe) -> Bool {
         repository.isFavorite(recipe)
     }
+    
+    
+    func clear() {
+        repository.clear()
+    }
 
 }
 
 protocol FavoritesRecipesUseCaseType {
     func favorite(_ recipe: Recipe)
     func isfavorite(_ recipe: Recipe) -> Bool
+    func clear()
 }

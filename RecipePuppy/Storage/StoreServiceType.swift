@@ -22,7 +22,7 @@ class ListenerWrapper {
     
 }
 
-protocol Store: AnyObject {
+protocol StoreServiceType: AnyObject {
     associatedtype Model: Codable, Equatable
 
     var key: String { get }
@@ -43,7 +43,7 @@ protocol Store: AnyObject {
     func contains(_ value: Model) -> Bool
 }
 
-extension Store {
+extension StoreServiceType {
     
     func add(_ value: Model) {
         guard !values.contains(value) else { return }
