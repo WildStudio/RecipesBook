@@ -26,6 +26,8 @@ class SearchViewModelTests: XCTestCase {
             switch destination {
             case .alert: self.didRouteToAlert = true
             case .detail(let recipe): self.invokedRecipeRoute = recipe
+            case .favorites:
+                break
             }
         }
         

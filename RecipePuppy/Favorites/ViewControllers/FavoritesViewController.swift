@@ -22,6 +22,7 @@ final class FavoritesViewController: UIViewController {
         collectionViewLayout: UICollectionViewFlowLayout()
     )
     
+     lazy private var emptyStateController: EmptyStateViewController = .favoritesEmptyState()
     
     // MARK: - Life cycle
     
@@ -43,13 +44,26 @@ final class FavoritesViewController: UIViewController {
         viewModel.initiate()
     }
     
+    private func addEmptyState() {
+        embed(emptyStateController)
+        embedView(emptyStateController.view, in: view)
+    }
+    
+    
+    private func removeEmptyState() {
+        remove(emptyStateController)
+    }
+
     
     private func setupCollectionView() {
         collectionView.registerRecipeCell(RecipeCell.reuseIdentifier)
-        collectionView.backgroundColor = .white
         view.addSubview(collectionView)
         collectionView.addConstraintsToFillSuperview()
         collectionView.delegate = self
+        collectionView.backgroundColor = .systemBackground
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.estimatedItemSize = CGSize(width: 300, height: 300)
+        collectionView.collectionViewLayout = flowLayout
     }
     
 }
@@ -67,6 +81,8 @@ extension FavoritesViewController: FavoritesViewModelDelegate {
         
         self.dataSource = dataSource
         collectionView.dataSource = dataSource
+        
+        _ = viewModel.shouldAddEmptyState ? addEmptyState() : removeEmptyState()
     }
     
     

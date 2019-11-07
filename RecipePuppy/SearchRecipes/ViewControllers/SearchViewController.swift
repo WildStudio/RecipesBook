@@ -31,17 +31,22 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
     @IBOutlet private var collectionView: UICollectionView!
     
     
-    // MARK: - Life cycle
+    // MARK: - Dependecy injection & observe state
     
     func configure(with viewModel: SearchViewModel) {
         self.viewModel = viewModel
+        
+        viewModel.onViewStateChange = { [weak self] state in
+            self?.handle(state)
+        }
     }
     
+    
+    // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel?.title
-        viewModel?.delegate = self
         setupSearchController()
         setupCollectionView()
         addEmptyState()
@@ -50,11 +55,13 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
     
     
     private func addFavoritesButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
+        let barButtonItem = UIBarButtonItem(
             barButtonSystemItem: .bookmarks,
             target: self,
             action: #selector(onFavorites)
         )
+        barButtonItem.tintColor = .systemGreen
+        navigationItem.rightBarButtonItem = barButtonItem
     }
     
     
@@ -85,6 +92,7 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.prefetchDataSource = self
+        collectionView.registerRecipeCell(RecipeCell.reuseIdentifier)
     }
     
     
@@ -100,6 +108,25 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
         viewModel?.didSelectFavorites()
     }
     
+    
+    private func handle(_ state: ViewState) {
+        switch state {
+        case .empty:
+            addEmptyState()
+        case .ready:
+            removeEmptyState()
+            spinner.stopAnimating()
+            search?.searchBar.searchTextField.leftView = searchBarInitialLeftView
+            collectionView.reloadData()
+        case .loading:
+            removeEmptyState()
+            search?.searchBar.searchTextField.leftView = spinner
+            spinner.startAnimating()
+        default:
+            break
+        }
+    }
+    
 }
 
 // MARK: - UISearchResultsUpdating
@@ -109,8 +136,6 @@ extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text
             else { return }
-        searchController.searchBar.searchTextField.leftView = spinner
-        spinner.startAnimating()
         viewModel?.initiate(searchQuery: text)
     }
     
@@ -150,16 +175,6 @@ extension SearchViewController: UICollectionViewDelegate {
     }
 }
 
-
-// MARK: - View Model delegate
-
-extension SearchViewController: SearchViewModelDelegate {
-    
-    func onFetchCompleted() {
-        refreshView()
-    }
-    
-}
 
 // MARK: - UICollectionViewDataSourcePrefetching
 

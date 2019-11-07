@@ -20,6 +20,10 @@ final class FavoritesViewModel {
     
     weak var delegate: FavoritesViewModelDelegate?
     
+    var shouldAddEmptyState: Bool {
+        recipes.isEmpty
+    }
+    
     
     init(favoritesRecipes: FavoritesRecipesUseCaseType) {
         self.favoritesRecipes = favoritesRecipes

@@ -17,16 +17,13 @@ final class EmptyStateViewController: UIViewController {
         static let favoritesDescription = "Add your favorite recipes here!"
     }
     
-    @IBOutlet private var titleLabel: UILabel!
-    @IBOutlet private var subtitleLabel: UILabel!
-    
-    private(set) var titleText: String? {
+    @IBOutlet private var titleLabel: UILabel! {
         didSet { titleLabel.text = configuration.title }
     }
-    
-    private(set) var subTitleText: String? {
+    @IBOutlet private var subtitleLabel: UILabel! {
         didSet { subtitleLabel.text = configuration.subtitle }
     }
+    
     
     private let configuration: EmptyStateViewController.Configuration
     
@@ -37,8 +34,6 @@ final class EmptyStateViewController: UIViewController {
         self.configuration = configuration
         super.init(nibName: nil, bundle: nil)
     }
-    
-    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -66,7 +61,7 @@ extension EmptyStateViewController {
 
 extension EmptyStateViewController {
     
-    // TODO: - Ideally this should be localised and not harcoded
+    // TODO: - Ideally this should be localised
     
     static let searchEmptyState: () -> EmptyStateViewController = {
         return EmptyStateViewController(
