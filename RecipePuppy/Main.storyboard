@@ -10,7 +10,7 @@
         <!--Search View Controller-->
         <scene sceneID="XEX-jz-xdx">
             <objects>
-                <viewController id="s9y-Sc-Oxm" customClass="SearchViewController" customModule="RecipePuppy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" id="s9y-Sc-Oxm" customClass="SearchViewController" customModule="RecipePuppy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yKw-fs-GyC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -23,7 +23,7 @@ class RootCoordinatorTests: WindowTestCase {
         let service = MockServiceProvider.service()
         let store = RecipesStore()
         navigationController = UINavigationController()
-        navigationController.viewControllers = [SearchViewController()]
+        navigationController.viewControllers = [(SearchViewController.instantiate() ?? SearchViewController())]
         dependencyProvider = DependencyProvider(provider: RepositoryProvider(service: service, store: store), service: service)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

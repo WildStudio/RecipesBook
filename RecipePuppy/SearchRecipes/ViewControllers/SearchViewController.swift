@@ -11,6 +11,7 @@ import UIKit
 final class SearchViewController: UIViewController, AlertControllerDisplayable {
     
     private enum Constant {
+        static let storyboard = "Main"
         static let searchBarPlaceholder = "Start typing to search recipes..."
         static let prefetchingCell = 5
     }
@@ -31,7 +32,7 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
     @IBOutlet private var collectionView: UICollectionView!
     
     
-    // MARK: - Dependecy injection & observe view state
+    // MARK: - Dependecy injection & observe state
     
     func configure(with viewModel: SearchViewModel) {
         self.viewModel = viewModel
@@ -184,4 +185,16 @@ extension SearchViewController: UICollectionViewDataSourcePrefetching {
         }
     }
     
+}
+
+
+extension SearchViewController {
+     static func instantiate() -> SearchViewController? {
+           let storyboard = UIStoryboard(name: SearchViewController.Constant.storyboard, bundle: nil)
+           guard let viewController = storyboard
+               .instantiateViewController(withIdentifier: String(describing: self)) as? SearchViewController
+               else { return nil }
+           
+           return viewController
+       }
 }

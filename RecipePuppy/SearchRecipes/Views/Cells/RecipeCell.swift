@@ -55,6 +55,6 @@ final class RecipeCell: UICollectionViewCell, NibLoadable {
             contentView.rightAnchor.constraint(equalTo: rightAnchor),
             contentView.topAnchor.constraint(equalTo: topAnchor),
             contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
-            ])
+        ])
     }
 }
