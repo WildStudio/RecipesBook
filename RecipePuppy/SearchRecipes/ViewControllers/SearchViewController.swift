@@ -11,14 +11,11 @@ import UIKit
 final class SearchViewController: UIViewController, AlertControllerDisplayable {
     
     private enum Constant {
-        static let cellReuseIdentifier = "cell"
-        static let alertTitle = "Something went wrong"
-        static let alertOK = "OK"
+        static let storyboard = "Main"
         static let searchBarPlaceholder = "Start typing to search recipes..."
         static let prefetchingCell = 5
     }
     
-    private var timer: Timer?
     private var search: UISearchController?
     private var viewModel: SearchViewModel?
     private var searchBarInitialLeftView: UIView?
@@ -30,19 +27,23 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
         return spinner
     }()
     
-    lazy private var emptyStateController = EmptyStateViewController()
+    lazy private var emptyStateController: EmptyStateViewController = .searchEmptyState()
     
-    @IBOutlet private var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet private var collectionView: UICollectionView!
     
     
-    // MARK: - Life cycle
+    // MARK: - Dependecy injection & observe state
     
     func configure(with viewModel: SearchViewModel) {
         self.viewModel = viewModel
-        self.viewModel?.delegate = self
+        
+        viewModel.onViewStateChange = { [weak self] state in
+            self?.handle(state)
+        }
     }
     
+    
+    // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,13 +51,24 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
         setupSearchController()
         setupCollectionView()
         addEmptyState()
+        addFavoritesButton()
+    }
+    
+    
+    private func addFavoritesButton() {
+        let barButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .bookmarks,
+            target: self,
+            action: #selector(onFavorites)
+        )
+        barButtonItem.tintColor = .systemGreen
+        navigationItem.rightBarButtonItem = barButtonItem
     }
     
     
     private func addEmptyState() {
         embed(emptyStateController)
         embedView(emptyStateController.view, in: view)
-        emptyStateController.setupView(with: "Welcome to the Recipe Puppy App", subtitle: "What are you waiting for? Start typing to search recipes with ingredients.")
     }
     
     
@@ -81,14 +93,31 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.prefetchDataSource = self
+        collectionView.registerRecipeCell(RecipeCell.reuseIdentifier)
     }
     
     
-    private func refreshView() {
-        removeEmptyState()
-        spinner.stopAnimating()
-        search?.searchBar.searchTextField.leftView = searchBarInitialLeftView
-        collectionView.reloadData()
+    @objc private func onFavorites() {
+        viewModel?.didSelectFavorites()
+    }
+    
+    
+    private func handle(_ state: ViewState) {
+        switch state {
+        case .empty:
+            addEmptyState()
+        case .ready:
+            removeEmptyState()
+            spinner.stopAnimating()
+            search?.searchBar.searchTextField.leftView = searchBarInitialLeftView
+            collectionView.reloadData()
+        case .loading:
+            removeEmptyState()
+            search?.searchBar.searchTextField.leftView = spinner
+            spinner.startAnimating()
+        default:
+            break
+        }
     }
     
 }
@@ -100,8 +129,6 @@ extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text
             else { return }
-        searchController.searchBar.searchTextField.leftView = spinner
-        spinner.startAnimating()
         viewModel?.initiate(searchQuery: text)
     }
     
@@ -118,14 +145,14 @@ extension SearchViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: Constant.cellReuseIdentifier,
+            withReuseIdentifier: RecipeCell.reuseIdentifier,
             for: indexPath
-            ) as? RecipeCell,
-            let cellViewModel = viewModel?.recipeCellViewModel(at: indexPath.row)
-            else { assertionFailure("Wrong cell type")
+            ) as? RecipeCell
+            else {
                 return UICollectionViewCell()
         }
         
+        let cellViewModel = viewModel?.recipeCellViewModel(at: indexPath.row)
         cell.configure(with: cellViewModel)
         return cell
     }
@@ -142,31 +169,32 @@ extension SearchViewController: UICollectionViewDelegate {
 }
 
 
-// MARK: - View Model delegate
-
-extension SearchViewController: SearchViewModelDelegate {
-    
-    func onFetchCompleted() {
-        refreshView()
-    }
-    
-}
-
 // MARK: - UICollectionViewDataSourcePrefetching
 
 extension SearchViewController: UICollectionViewDataSourcePrefetching {
     
     func isLoadingCell(for indexPath: IndexPath) -> Bool {
-        guard let viewModel = self.viewModel
-            else { return false }
+        guard let viewModel = viewModel else { return false }
         return indexPath.row >= viewModel.recipes.count - Constant.prefetchingCell
     }
     
     
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         if indexPaths.contains(where: isLoadingCell) {
-             viewModel?.fetchRecipes()
+            viewModel?.fetchRecipes()
         }
     }
     
+}
+
+
+extension SearchViewController {
+     static func instantiate() -> SearchViewController? {
+           let storyboard = UIStoryboard(name: SearchViewController.Constant.storyboard, bundle: nil)
+           guard let viewController = storyboard
+               .instantiateViewController(withIdentifier: String(describing: self)) as? SearchViewController
+               else { return nil }
+           
+           return viewController
+       }
 }

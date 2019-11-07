@@ -9,12 +9,17 @@
 import Foundation
 import Models
 
-protocol SearchViewModelDelegate: AnyObject {
-    func onFetchCompleted()
-}
+final class SearchViewModel: ViewStateProviding {
 
-
-class SearchViewModel {
+    var viewState: ViewState = .empty {
+        didSet {
+            guard let closure = onViewStateChange else { return }
+            closure(viewState)
+        }
+    }
+    
+    var onViewStateChange: ((ViewState) -> Void)?
+    
     
     private enum Constant {
         static let title = "Recipes"
@@ -30,8 +35,7 @@ class SearchViewModel {
     private let routeMediator: RootCoordinator.RouteMediator
     
     private(set) var recipes = [Recipe]()
-    
-    weak var delegate: SearchViewModelDelegate?
+
     
     let title = Constant.title
     
@@ -55,12 +59,15 @@ class SearchViewModel {
     }
     
     
-    // TODO
+    // TODO: - Avoid spamming the server
     func fetchRecipes() {
         if searchQuery.count > Constant.minimumCharacters {
+            viewState = .loading
             getRecipes.execute(searchQuery, page: currentPage) { [weak self] result in
                 self?.handleResult(result)
             }
+        } else {
+            viewState = .empty
         }
     }
     
@@ -71,6 +78,11 @@ class SearchViewModel {
         guard let recipe = recipes[safe: indexPath.row]
             else { return }
         routeMediator.route(to: .detail(recipe))
+    }
+    
+    
+    func didSelectFavorites() {
+        routeMediator.route(to: .favorites)
     }
     
     
@@ -91,8 +103,8 @@ class SearchViewModel {
         switch result {
         case .success(let recipes):
             self.recipes.append(contentsOf: recipes)
-            self.currentPage += 1
-            delegate?.onFetchCompleted()
+            currentPage += 1
+            viewState = .ready
         case .failure(let error):
             let configuration = AlertConfiguration(
                 body: error.localizedDescription
