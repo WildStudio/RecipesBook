@@ -16,10 +16,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PVm-CU-nXG">
-                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="tyh-d5-bwP">
-                                    <size key="itemSize" width="375" height="300"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="5" minimumInteritemSpacing="5" id="tyh-d5-bwP">
+                                    <size key="itemSize" width="375" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
@@ -30,7 +30,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="PVm-CU-nXG" firstAttribute="leading" secondItem="O50-HG-DE2" secondAttribute="leading" id="ZPt-50-dqL"/>
-                            <constraint firstItem="PVm-CU-nXG" firstAttribute="top" secondItem="O50-HG-DE2" secondAttribute="top" id="eL9-ba-eD7"/>
+                            <constraint firstItem="PVm-CU-nXG" firstAttribute="top" secondItem="yKw-fs-GyC" secondAttribute="top" id="dGF-Db-GRv"/>
                             <constraint firstItem="O50-HG-DE2" firstAttribute="bottom" secondItem="PVm-CU-nXG" secondAttribute="bottom" id="eV7-kK-5W4"/>
                             <constraint firstItem="O50-HG-DE2" firstAttribute="trailing" secondItem="PVm-CU-nXG" secondAttribute="trailing" id="eew-a8-iez"/>
                         </constraints>

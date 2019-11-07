@@ -12,7 +12,7 @@ import Models
 final class FavoritesViewController: UIViewController {
     
     private enum Constant {
-        static let cellHeight: CGFloat = 300
+        static let cellHeight: CGFloat = 250
     }
     
     private var dataSource: CollectionViewDataSource<Recipe>?
@@ -62,8 +62,7 @@ final class FavoritesViewController: UIViewController {
         collectionView.delegate = self
         collectionView.backgroundColor = .systemBackground
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.estimatedItemSize = CGSize(width: 300, height: 300)
-        collectionView.collectionViewLayout = flowLayout
+        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
     }
     
 }

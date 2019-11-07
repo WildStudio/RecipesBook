@@ -31,7 +31,7 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
     @IBOutlet private var collectionView: UICollectionView!
     
     
-    // MARK: - Dependecy injection & observe state
+    // MARK: - Dependecy injection & observe view state
     
     func configure(with viewModel: SearchViewModel) {
         self.viewModel = viewModel
@@ -96,15 +96,7 @@ final class SearchViewController: UIViewController, AlertControllerDisplayable {
     }
     
     
-    private func refreshView() {
-        removeEmptyState()
-        spinner.stopAnimating()
-        search?.searchBar.searchTextField.leftView = searchBarInitialLeftView
-        collectionView.reloadData()
-    }
-    
-    
-    @objc func onFavorites() {
+    @objc private func onFavorites() {
         viewModel?.didSelectFavorites()
     }
     
