@@ -1,0 +1,25 @@
+language: swift
+osx_image: xcode11
+
+jobs:
+    include:
+    - stage: build
+    name: "Building iOS"
+    script: bundle exec fastlane build_framework platform:'iOS'
+    
+    - stage: test
+    name: "Running tests"
+    script: bundle exec fastlane unit_test device:'iPhone 8'
+
+stages:
+- name: build develop
+    if: (type = pull_request OR type = push) AND branch = develop
+
+- name: test develop
+    if: (type = pull_request OR type = push) AND branch = develop
+    
+- name: build master
+    if: (type = pull_request OR type = push) AND branch = master
+    
+- name: test master
+    if: (type = pull_request OR type = push) AND branch = master
