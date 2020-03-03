@@ -12,7 +12,7 @@ This code follows the [Ray Wenderlich Swift Style Guide](https://github.com/rayw
 
 ## Architecture
 
-This project follows the MVVM (Model View ViewModel) architecture with repositories and use cases, at the presentation layer. ViewModel are where the view business logic is added. A ViewModel only communicates with repositories and view controllers. We are using the delegate pattern to communicate with view controllers and closures, reactive baiding can also be added as a future enhancement. Our Network and Model layer follow a modular approach so they can be reused. When referring to modules we are referring to the idea of a single package of code. Modules can be compiled on therir own..
+This project follows the MVVM (Model View ViewModel) architecture with repositories and use cases, at the presentation layer. ViewModel are where the view business logic is added. A ViewModel only communicates with repositories and view controllers. We are using the delegate pattern to communicate with view controllers and closures, reactive binding can also be added as a future enhancement.
 
 
 ## Testing
